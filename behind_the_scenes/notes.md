@@ -1,6 +1,6 @@
-#Execution Context
+# Execution Context
 
-##What's inside the execution context?
+## What's inside the execution context?
 
 1. Variable Environment
    -let, const and var declarations
@@ -9,7 +9,8 @@
 2. Scope chain
 3. this keyword
 
-##Compilation
+## Compilation
+
 -Creation of global execution content (Not inside functions)
 -Execution of top-level code  
 -Execution of functions and waiting for callbacks
