@@ -11,6 +11,6 @@
 
 ## Compilation
 
--Creation of global execution content (Not inside functions)
--Execution of top-level code  
--Execution of functions and waiting for callbacks
+- Creation of global execution content (Not inside functions)
+- Execution of top-level code
+- Execution of functions and waiting for callbacks
