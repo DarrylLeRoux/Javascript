@@ -36,4 +36,6 @@
 ### Block Scope (ES6)
 
 - Variables are accessible only inside a block `{}`
-- Only applies to `let` and `const`, not `var`
+- Only applies to `let` and `const`, not `var` (`var` is function-scoped)
+- Functions are alos block scope in `'use strict'`
+- Scope has access to variables from all outer scopes (Variable lookup in the Scope Chain). Only parent scopes can be used.
