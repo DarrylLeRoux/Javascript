@@ -42,17 +42,47 @@
 
 ## `this` keyword
 
+- `this` keyword points to it's "owner"
+- Attaches itself to the object that calls it `Object.this`
+
 ```
 const jonas = {
    firstName: 'jonas',
    year: 1991,
    calcAge: function () {
-      console.log(this);
-      console.log(2037 - this.year)
+      console.log(this); //this = jonas
+      console.log(2037 - this.year) //this = 1991
    },
 
+   //An Object's {} is not a code block and therefore, this is undefined as it points to the window and not to the Object
    greet: () => console.log(`Hey ${this.firstName}`),
 
 };
+//Will return undefined, as the this keyword above points to the window, without any firstName defined.
 jonas.greet();
+```
+
+- One way around the scope of `this` is to declare a variable inside the functions scope:
+
+```
+const jonas = {
+   firstName: 'jonas',
+   year: 1991,
+   calcAge: function () {
+      console.log(this); //this = jonas
+      console.log(2037 - this.year) //this = 1991
+
+      //Old version
+      const self = this //this points to the parent which is the jonas Object
+      const isMillenial = function (){
+         console.log(self.year >= 1981 && self.year <=1996)
+      };
+
+      //New version
+      //We can now use the this keyword, as it will use the parent scope
+      const isMillenial = () -> {
+         console.log(this.year >= 1981 && this.year <=1996)
+      };
+      isMillenial();
+   },
 ```
