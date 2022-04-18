@@ -3,11 +3,11 @@
 ## What's inside the execution context?
 
 1. Variable Environment
-   -let, const and var declarations
-   -Functions
-   -Arguments object
+   - `let`, `const` and `var` declarations
+   - Functions
+   - Arguments object
 2. Scope chain
-3. this keyword
+3. `this` keyword
 
 ## Compilation
 
@@ -35,5 +35,5 @@
 
 ### Block Scope (ES6)
 
-- Variables are accessible only inside a block {}
+- Variables are accessible only inside a block `{}`
 - Only applies to `let` and `const`, not `var`
