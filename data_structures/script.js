@@ -30,7 +30,28 @@ const restaurant = {
       close: 24,
     },
   },
+
+  orderDelivery: function ({
+    name,
+    starterIndex,
+    mainIndex,
+    time,
+    address,
+    date = "June", //Default value set, as it is not in the obj being passed
+  }) {
+    console.log(
+      `Order received, ${name}. ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delievered to ${address} at ${time} in ${date}`
+    );
+  },
 };
+
+restaurant.orderDelivery({
+  time: "23:30",
+  address: "Homestead Orchards",
+  mainIndex: 2,
+  starterIndex: 2,
+  name: "Darryl",
+});
 /* //Destructuring Arrays
 const arr = [2, 3, 4];
 const [a, b, c] = arr;
@@ -62,3 +83,23 @@ console.log(p, q, r);
 */
 
 //Destructuring Objects
+//You need to use the keys as the variables
+const { name, openingHours, categories } = restaurant;
+console.log(name, openingHours, categories);
+//Changing variable names and property names
+const { name: restaurantName, openingHours: hours } = restaurant;
+console.log(restaurantName, hours);
+//Setting defaults
+const { menu = [], starterMenu: starters = [] } = restaurant;
+//Mutating variables
+let a = 111;
+let b = 999;
+const obj = { a: 23, b: 7, c: 14 };
+//Wrap in ()
+({ a, b } = obj);
+console.log(a, b); //23, 7
+//Nested
+const {
+  fri: { open, close },
+} = openingHours;
+console.log(open + "am", close + "pm");
