@@ -249,19 +249,25 @@ const game = {
 // const players1Final = [...players1, "Thiago", "Coutinho", "Perisic"];
 // console.log(players1Final);
 // // 5.
-// const { team1, x: draw, team2 } = game.odds;
+const {
+  odds: { team1, x: draw, team2 },
+} = game;
 // console.log(team1, draw, team2);
 // 6.
+// const printGoals = function (...playerScored) {
+//   let goals = 0;
+//   for (let i = 0; i < playerScored.length; i++) {
+//     goals++;
+//     // console.log(goals, playerScored[i]);
+//   }
+//   console.log(goals, ...playerScored);
+// };
 const printGoals = function (...playerScored) {
-  let goals = 0;
-  for (let i = 0; i < playerScored.length; i++) {
-    goals++;
-    // console.log(goals, playerScored[i]);
-  }
-  console.log(goals, ...playerScored);
+  console.log(`${playerScored.length} goals were scored by ${playerScored}`);
 };
 
 printGoals(...game.scored);
 printGoals("Davies", "Muller", "Lewandowski", "Kimmich");
 
-(game.odds.team1 ||= game.odds.x), game.odds.team1, game.odds.team2;
+// 7.
+team1 < team2 && console.log("Team 1 is more likely to win");
