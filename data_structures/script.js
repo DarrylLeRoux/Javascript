@@ -106,7 +106,7 @@ const {
   fri: { open, close },
 } = openingHours;
 console.log(open + "am", close + "pm");
-*/
+
 
 //Spread Operator
 const newMenu = [...restaurant.mainMenu, "Gnocci"];
@@ -119,9 +119,21 @@ const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
 console.log(menu);
 
 //Real case use
-const ingredients = [
-  prompt("What would you like in your pasta?"),
-  prompt("Ingredient 2?"),
-  prompt("Ingredient 3?"),
-];
-restaurant.orderPasta(...ingredients);
+// const ingredients = [
+//   prompt("What would you like in your pasta?"),
+//   prompt("Ingredient 2?"),
+//   prompt("Ingredient 3?"),
+// ];
+// restaurant.orderPasta(...ingredients);
+
+//On Objects
+const newRestaurant = { ...restaurant, founder: "Guiseppi", year: 1998 };
+console.log(newRestaurant);
+const restaurantCopy = { ...restaurant };
+restaurantCopy.name = "Chappies";
+({ name } = restaurantCopy);
+console.log(name);
+
+*/
+
+// Rest Pattern
