@@ -46,6 +46,10 @@ const restaurant = {
   orderPasta: function (ing1, ing2, ing3) {
     console.log(`Here is your pasta with ${ing1}, ${ing2}, and ${ing3}`);
   },
+  orderPizza: function (mainIngredient, ...otherIngredients) {
+    console.log(mainIngredient);
+    console.log(otherIngredients);
+  },
 };
 
 restaurant.orderDelivery({
@@ -55,6 +59,8 @@ restaurant.orderDelivery({
   starterIndex: 2,
   name: "Darryl",
 });
+
+restaurant.orderPizza("mushrooms", "onion", "olives");
 /* //Destructuring Arrays
 const arr = [2, 3, 4];
 const [a, b, c] = arr;
@@ -134,6 +140,39 @@ restaurantCopy.name = "Chappies";
 ({ name } = restaurantCopy);
 console.log(name);
 
-*/
 
-// Rest Pattern
+
+// (takes the)REST(of the array) Pattern
+// Packs elements into an array
+//Spread -> of =
+const arr = [1, 2, ...[3, 4]];
+const arr2 = [5, 6, 7, 8];
+//Rest <- of =
+const [a, b, ...others] = [...arr, ...arr2];
+console.log(others);
+//Using spread and rest
+const [pizza, , risotto, ...otherFood] = [
+  ...restaurant.mainMenu,
+  ...restaurant.starterMenu,
+];
+console.log(pizza, risotto, otherFood);
+
+//Objects
+const { sat, ...weekDays } = restaurant.openingHours;
+console.log(sat, weekDays);
+
+//FUNCTIONS
+const add = function (...numbers) {
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+  }
+  console.log(sum);
+};
+add(2, 3);
+add(5, 3, 7, 2);
+add(8, 2, 5, 3, 2, 1, 4);
+
+const x = [23, 5, 7];
+add(...x);
+*/
