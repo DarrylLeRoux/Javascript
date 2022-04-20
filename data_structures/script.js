@@ -43,6 +43,9 @@ const restaurant = {
       `Order received, ${name}. ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delievered to ${address} at ${time} in ${date}`
     );
   },
+  orderPasta: function (ing1, ing2, ing3) {
+    console.log(`Here is your pasta with ${ing1}, ${ing2}, and ${ing3}`);
+  },
 };
 
 restaurant.orderDelivery({
@@ -80,7 +83,7 @@ console.log(i, k, l); //2, 5, 6
 //If the array has a value, the default will be overwritten
 const [p = 1, q = 1, r = 1] = [8, 9];
 console.log(p, q, r);
-*/
+
 
 //Destructuring Objects
 //You need to use the keys as the variables
@@ -103,3 +106,22 @@ const {
   fri: { open, close },
 } = openingHours;
 console.log(open + "am", close + "pm");
+*/
+
+//Spread Operator
+const newMenu = [...restaurant.mainMenu, "Gnocci"];
+console.log(newMenu);
+//Create shallow copy
+//Copy the mainMenu array
+const mainMenuCopy = [...restaurant.mainMenu];
+//Join arrays
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+console.log(menu);
+
+//Real case use
+const ingredients = [
+  prompt("What would you like in your pasta?"),
+  prompt("Ingredient 2?"),
+  prompt("Ingredient 3?"),
+];
+restaurant.orderPasta(...ingredients);
