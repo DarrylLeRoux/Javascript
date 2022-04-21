@@ -54,7 +54,30 @@ const restaurant = {
     console.log(otherIngredients);
   },
 };
+/* 
+///////////////////////////////////////////////////////////////
+//Looping over Objects with Property keys
+const properties = Object.keys(openingHours);
+// console.log(properties);
+let openStr = `We are open ${properties.length} days a week`;
 
+for (const day of properties) {
+  openStr += `, ${day}`;
+}
+// console.log(openStr);
+
+//Looping over Objects with Property Values
+const values = Object.values(openingHours);
+// console.log(values);
+
+// Entire Object Looping
+const entries = Object.entries(openingHours);
+// console.log(entries);
+
+for (const [key, { open, close }] of entries) {
+  console.log(`On ${key}, we open at ${open} and close at ${close}`);
+}
+/////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////
 //Optional chaining
 //Without optional chaining
@@ -80,7 +103,7 @@ console.log(restaurant.celebrate?.(4, 45) ?? "Method does not exist");
 const users = [{ name: "jonas", email: "jonas@hsma.com" }];
 console.log(users[0]?.email ?? "email does not exist");
 ///////////////////////////////////////////////////////////////////
-/* ////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
 // // Looping over arrays
 // const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
 
@@ -93,7 +116,7 @@ console.log(users[0]?.email ?? "email does not exist");
 // for (const [i, item] of menu.entries()) {
 //   console.log(`Menu item ${i + 1}: ${item}`);
 // }
- ////////////////////////////////////////////////////////////////*/
+ ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////
 // restaurant.orderDelivery({
 //   time: "23:30",
@@ -104,7 +127,7 @@ console.log(users[0]?.email ?? "email does not exist");
 // });
 
 // restaurant.orderPizza("mushrooms", "onion", "olives");
-/* //Destructuring Arrays
+//Destructuring Arrays
 const arr = [2, 3, 4];
 const [a, b, c] = arr;
 console.log(a); // 2
@@ -315,3 +338,83 @@ printGoals("Davies", "Muller", "Lewandowski", "Kimmich");
 // 7.
 team1 < team2 && console.log("Team 1 is more likely to win");
 */
+
+// Coding Challenge #2
+/*
+Let's continue with our football betting app!
+
+1. Loop over the game.scored array and print each player name to the console, along with the goal number (Example: "Goal 1: Lewandowski")
+2. Use a loop to calculate the average odd and log it to the console (We already studied how to calculate averages, you can go check if you don't remember)
+3. Print the 3 odds to the console, but in a nice formatted way, exaclty like this:
+      Odd of victory Bayern Munich: 1.33
+      Odd of draw: 3.25
+      Odd of victory Borrussia Dortmund: 6.5
+Get the team names directly from the game object, don't hardcode them (except for "draw"). HINT: Note how the odds and the game objects have the same property names 😉
+
+BONUS: Create an object called 'scorers' which contains the names of the players who scored as properties, and the number of goals as the value. In this game, it will look like this:
+      {
+        Gnarby: 1,
+        Hummels: 1,
+        Lewandowski: 2
+      }
+*/
+const game = {
+  team1: "Bayern Munich",
+  team2: "Borrussia Dortmund",
+  players: [
+    [
+      "Neuer",
+      "Pavard",
+      "Martinez",
+      "Alaba",
+      "Davies",
+      "Kimmich",
+      "Goretzka",
+      "Coman",
+      "Muller",
+      "Gnarby",
+      "Lewandowski",
+    ],
+    [
+      "Burki",
+      "Schulz",
+      "Hummels",
+      "Akanji",
+      "Hakimi",
+      "Weigl",
+      "Witsel",
+      "Hazard",
+      "Brandt",
+      "Sancho",
+      "Gotze",
+    ],
+  ],
+  score: "4:0",
+  scored: ["Lewandowski", "Gnarby", "Lewandowski", "Hummels", "Jackie"],
+  date: "Nov 9th, 2037",
+  odds: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.5,
+  },
+};
+console.log(game.scored.entries());
+// 1.
+for (let [goal, scored] of game.scored.entries()) {
+  console.log(`Goal ${goal + 1} was scored by: ${scored}`);
+}
+// 2.
+const odds = Object.values(game.odds);
+let average = 0;
+
+for (const odd of odds) {
+  average += odd;
+  average /= odds.length;
+}
+console.log(average);
+
+// 3.
+for (const [team, odd] of Object.entries(game.odds)) {
+  const teamStr = team === "x" ? "draw" : `victory ${game[team]}`;
+  console.log(`Odds of ${teamStr} winning: ${odd}`);
+}
