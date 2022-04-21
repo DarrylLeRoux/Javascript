@@ -29,11 +29,12 @@ const restaurant = {
   mainMenu: ["Pizza", "Pasta", "Risotto"],
   openingHours,
 
-  order: function (starterIndex, mainIndex) {
+  // No need to add : function(), it computes that it is a function automatically
+  order(starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
 
-  orderDelivery: function ({
+  orderDelivery({
     name,
     starterIndex,
     mainIndex,
@@ -54,6 +55,46 @@ const restaurant = {
   },
 };
 
+////////////////////////////////////////////////////////////////
+//Optional chaining
+//Without optional chaining
+if (restaurant.openingHours && restaurant.openingHours.mon) {
+  console.log(restaurant.openingHours.mon.open);
+}
+//With optional chaining
+console.log(restaurant.openingHours?.mon?.open);
+
+// Example
+const days = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
+for (const day of days) {
+  // console.log(day);
+  const open = restaurant.openingHours[day]?.open ?? "closed";
+  console.log(`On ${day}, we open at ${open} hours`);
+}
+
+//Methods
+console.log(restaurant.order?.(0, 1) ?? "Method does not exist");
+console.log(restaurant.celebrate?.(4, 45) ?? "Method does not exist");
+
+//Arrays
+const users = [{ name: "jonas", email: "jonas@hsma.com" }];
+console.log(users[0]?.email ?? "email does not exist");
+///////////////////////////////////////////////////////////////////
+/* ////////////////////////////////////////////////////////////////
+// // Looping over arrays
+// const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+
+// for (const item of menu) {
+//   console.log(item);
+// }
+
+// const [index, item] = [...menu.entries()];
+// // to get the index - use .entries()
+// for (const [i, item] of menu.entries()) {
+//   console.log(`Menu item ${i + 1}: ${item}`);
+// }
+ ////////////////////////////////////////////////////////////////*/
+////////////////////////////////////////////////////////////////
 // restaurant.orderDelivery({
 //   time: "23:30",
 //   address: "Homestead Orchards",
@@ -274,15 +315,3 @@ printGoals("Davies", "Muller", "Lewandowski", "Kimmich");
 // 7.
 team1 < team2 && console.log("Team 1 is more likely to win");
 */
-// Looping over arrays
-const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
-
-for (const item of menu) {
-  console.log(item);
-}
-
-const [index, item] = [...menu.entries()];
-// to get the index - use .entries()
-for (const [i, item] of menu.entries()) {
-  console.log(`Menu item ${i + 1}: ${item}`);
-}
