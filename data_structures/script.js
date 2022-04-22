@@ -54,6 +54,58 @@ const restaurant = {
     console.log(otherIngredients);
   },
 };
+
+// Maps
+//Stores data in key value pairs
+//set = add
+const rest = new Map();
+rest.set("name", "Classico Italiano");
+
+rest
+  .set("categories", ["Italian", "Pizzeria", "Vegetarian", "Organic"])
+  .set("open", 11)
+  .set("close", 23)
+  .set(true, "We are open :D")
+  .set(false, "We are closed :(");
+
+//Get = retrieve
+console.log(rest.get("name")); //Classico Italiano
+console.log(rest.get(true));
+console.log(rest.get("open"));
+
+const time = 21;
+rest.get(time > rest.get("open") && time < rest.get("closed"));
+
+console.log(rest);
+
+/* SETS - Removes duplicates
+const ordersSet = new Set([
+  "Pasta",
+  "Pizza",
+  "Pasta",
+  "Risotto",
+  "Pizza",
+  "Pasta",
+]);
+console.log(ordersSet);
+
+console.log(ordersSet.size); // Unique entries
+console.log(ordersSet.has("Pizza")); //True
+console.log(ordersSet.has("Bread")); //False
+ordersSet.add("Garlic Bread"); //Add
+ordersSet.delete("Risotto"); //Delete an Element
+
+// Iterable
+for (const order of ordersSet) {
+  console.log(order);
+}
+
+//Example
+const staff = ["waiter", "chef", "manager", "waiter"];
+// Place the Set into an array
+const staffPositions = [...new Set(staff)];
+console.log(staffPositions);
+*/
 /* 
 ///////////////////////////////////////////////////////////////
 //Looping over Objects with Property keys
