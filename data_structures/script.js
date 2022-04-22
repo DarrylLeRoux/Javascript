@@ -89,7 +89,7 @@ rest.delete(2);
 console.log(rest);
 */
 
-// Iterating over Maps
+/* // Iterating over Maps
 const question = new Map([
   ["Question", "What is the best programming language?"],
   [1, "C"],
@@ -113,7 +113,7 @@ input === question.get("correct")
 
 //Convert Object to Map
 const hoursMap = new Map(Object.entries(openingHours));
-
+*/
 /* SETS - Removes duplicates
 const ordersSet = new Set([
   "Pasta",
