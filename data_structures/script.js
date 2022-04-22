@@ -64,9 +64,14 @@ rest.set("name", "Classico Italiano");
 rest
   .set("categories", ["Italian", "Pizzeria", "Vegetarian", "Organic"])
   .set("open", 11)
-  .set("close", 23)
+  .set("closed", 23)
   .set(true, "We are open :D")
-  .set(false, "We are closed :(");
+  .set(false, "We are closed :(")
+  .set([1, 2, 3], "test"); //array as key = undefined
+const arr = [1, 2, 3]; //array as a variable first can be called
+rest.set(arr, "test");
+
+console.log(rest.get(arr));
 
 //Get = retrieve
 console.log(rest.get("name")); //Classico Italiano
@@ -74,7 +79,12 @@ console.log(rest.get(true));
 console.log(rest.get("open"));
 
 const time = 21;
-rest.get(time > rest.get("open") && time < rest.get("closed"));
+console.log(rest.get(time > rest.get("open") && time < rest.get("closed")));
+
+//has = checks for element
+rest.has("categories"); // true
+//delete = deletes a key
+rest.delete(2);
 
 console.log(rest);
 
