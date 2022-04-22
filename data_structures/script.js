@@ -55,7 +55,7 @@ const restaurant = {
   },
 };
 
-// Maps
+/*  MAPS - stores keys and values
 //Stores data in key value pairs
 //set = add
 const rest = new Map();
@@ -71,7 +71,7 @@ rest
 const arr = [1, 2, 3]; //array as a variable first can be called
 rest.set(arr, "test");
 
-console.log(rest.get(arr));
+console.log(rest.get(arr)); // test
 
 //Get = retrieve
 console.log(rest.get("name")); //Classico Italiano
@@ -87,6 +87,32 @@ rest.has("categories"); // true
 rest.delete(2);
 
 console.log(rest);
+*/
+
+// Iterating over Maps
+const question = new Map([
+  ["Question", "What is the best programming language?"],
+  [1, "C"],
+  [2, "Java"],
+  [3, "Javascript"],
+  ["correct", 3],
+  [true, "Correct 🎉"],
+  [false, "Nope 💥"],
+]);
+console.log(question);
+//Looping over the Map of arrays
+console.log(question.get("Question"));
+for (const [key, value] of question) {
+  if (typeof key === "number") console.log(`Answer ${key}: ${value}`);
+}
+
+const input = Number(prompt("What is your answer?"));
+input === question.get("correct")
+  ? alert(question.get(true))
+  : alert(question.get(false));
+
+//Convert Object to Map
+const hoursMap = new Map(Object.entries(openingHours));
 
 /* SETS - Removes duplicates
 const ordersSet = new Set([
