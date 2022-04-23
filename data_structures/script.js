@@ -496,9 +496,13 @@ const gameEvents = new Map([
   [80, "⚽️ GOAL"],
   [92, "🔶 Yellow card"],
 ]);
-
+// 1.
 const events = new Set([...gameEvents]);
 console.log(events);
+// 2.
+gameEvents.delete(64);
+console.log(gameEvents);
+// 3.
 
 ///////////////////////////////////////
 // Coding Challenge #4
