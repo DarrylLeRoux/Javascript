@@ -503,6 +503,16 @@ console.log(events);
 gameEvents.delete(64);
 console.log(gameEvents);
 // 3.
+`An event happened, on average, every 9 minutes`;
+
+// 4.
+for (const [key, value] of gameEvents) {
+  console.log(
+    key < 45
+      ? `[FIRST HALF] ${key}: ${value}`
+      : `[SECOND HALF] ${key}: ${value}`
+  );
+}
 
 ///////////////////////////////////////
 // Coding Challenge #4
