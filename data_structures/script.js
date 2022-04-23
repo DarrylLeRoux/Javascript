@@ -497,7 +497,7 @@ const gameEvents = new Map([
   [92, "🔶 Yellow card"],
 ]);
 // 1.
-const events = new Set([...gameEvents]);
+const events = new Set(gameEvents.values());
 console.log(events);
 // 2.
 gameEvents.delete(64);
