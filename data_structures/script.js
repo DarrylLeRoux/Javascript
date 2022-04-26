@@ -55,7 +55,7 @@ const restaurant = {
   },
 };
 
-// STRINGS
+/* // STRINGS
 const airline = "TAP Air Portugal";
 
 console.log(airline.toLowerCase());
@@ -114,6 +114,48 @@ const checkBaggage = function (items) {
 checkBaggage("I have a laptop, some food and a Pocket Knife");
 checkBaggage("Socks and camera");
 checkBaggage("Got a gun for protection");
+*/
+// split() and join()
+console.log("a+very+nice+string".split("+"));
+console.log("Darryl Roux".split(" "));
+const [firstName, lastName] = "Darryl Roux".split(" ");
+
+const newName = ["Mr", firstName, lastName.toUpperCase()].join(" ");
+console.log(newName);
+
+const capitalName = function (name) {
+  //Split names into an array
+  const names = name.split(" ");
+  //New array to push the mutated elements into
+  const namesUpper = [];
+  //Loop over the array
+  for (const n of names) {
+    //Push new elements into the namesArray
+    namesUpper.push(n[0].toUpperCase() + n.slice(1));
+  }
+  console.log(namesUpper.join(" "));
+};
+capitalName("jessica ann smith davis");
+
+//Padding
+const message = "Go to gate 23!";
+console.log(message.padStart(25, "+"));
+console.log(message.padEnd(25, "+"));
+
+const maskCreditCard = function (number) {
+  const str = number + ""; // String(number)
+  //Take the last 4 numbers from the argument
+  const last = str.slice(-4);
+  //Pad the start with the string length instead of a random amount
+  return last.padStart(str.length, "*");
+};
+console.log(maskCreditCard(4336565652762323));
+console.log(maskCreditCard("234234234234243"));
+
+//Repeat
+const repeatMessage = "bad weather...all departures delayed ";
+console.log(repeatMessage.repeat(5));
+
 /*  MAPS - stores keys and values
 //Stores data in key value pairs
 //set = add
