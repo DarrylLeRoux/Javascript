@@ -96,7 +96,24 @@ console.log(announcement.replaceAll("door", "gate"));
 //Booleans
 const plane = "Airbus A320neo";
 console.log(plane.includes("A320")); //true
-console.log(plane.startsWith("Air"));
+console.log(plane.startsWith("Air")); //true
+
+if (plane.startsWith("Airbus") && plane.endsWith("neo")) {
+  console.log("Part of the NEW Airbus family"); //prints
+}
+
+//Practice exercise
+const checkBaggage = function (items) {
+  const baggage = items.toLowerCase();
+  if (baggage.includes("knife") || baggage.includes("gun")) {
+    console.log("You are not allowed on the plane");
+  } else {
+    console.log("Welcome Aboard");
+  }
+};
+checkBaggage("I have a laptop, some food and a Pocket Knife");
+checkBaggage("Socks and camera");
+checkBaggage("Got a gun for protection");
 /*  MAPS - stores keys and values
 //Stores data in key value pairs
 //set = add
