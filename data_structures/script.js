@@ -114,7 +114,7 @@ const checkBaggage = function (items) {
 checkBaggage("I have a laptop, some food and a Pocket Knife");
 checkBaggage("Socks and camera");
 checkBaggage("Got a gun for protection");
-*/
+
 // split() and join()
 console.log("a+very+nice+string".split("+"));
 console.log("Darryl Roux".split(" "));
@@ -155,7 +155,7 @@ console.log(maskCreditCard("234234234234243"));
 //Repeat
 const repeatMessage = "bad weather...all departures delayed ";
 console.log(repeatMessage.repeat(5));
-
+*/
 /*  MAPS - stores keys and values
 //Stores data in key value pairs
 //set = add
@@ -648,3 +648,21 @@ Afterwards, test with your own test data!
 
 GOOD LUCK 😀
 */
+document.body.append(document.createElement("textarea"));
+document.body.append(document.createElement("button"));
+
+document.querySelector("button").addEventListener("click", () => {
+  const text = document.querySelector("textarea").value;
+  const rows = text.split("\n");
+
+  for (const [i, row] of rows.entries()) {
+    const [first, second] = row.toLowerCase().trim().split("_");
+
+    const output = `${first}${second.replace(
+      second[0],
+      second[0].toUpperCase()
+    )}`;
+    //get current index
+    console.log(`${output.padEnd(20)}${"✅".repeat(i + 1)}`);
+  }
+});
