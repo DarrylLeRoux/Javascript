@@ -55,6 +55,33 @@ const restaurant = {
   },
 };
 
+// STRINGS
+const airline = "TAP Air Portugal";
+
+console.log(airline.toLowerCase());
+console.log(airline.toUpperCase());
+
+// Fix capitalisation in name
+const passenger = "jOnAS";
+const passengerLower = passenger.toLowerCase();
+const passengerCorrect =
+  passengerLower[0].toUpperCase() + passengerLower.slice(1);
+console.log(passengerCorrect);
+
+//Function for capitalisation in name
+let capitaliseName = function (name) {
+  name = name.toLowerCase();
+  name = name[0].toUpperCase() + name.slice(1);
+  console.log(name);
+};
+capitaliseName("darrYl");
+
+//comparing email
+const email = "hello@jonas.io";
+const loginEmail = "  Hello@Jonas.io \n";
+
+const normalisedEmail = loginEmail.toLowerCase().trim();
+console.log(normalisedEmail);
 /*  MAPS - stores keys and values
 //Stores data in key value pairs
 //set = add
