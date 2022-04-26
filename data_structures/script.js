@@ -82,6 +82,21 @@ const loginEmail = "  Hello@Jonas.io \n";
 
 const normalisedEmail = loginEmail.toLowerCase().trim();
 console.log(normalisedEmail);
+
+//Replacing
+const priceGB = "£288,97";
+const priceUS = priceGB.replace("£", "$").replace(",", ".");
+console.log(priceUS);
+
+//Replacing all
+const announcement =
+  "All passengers come to boarding door 23. Boarding door 23";
+console.log(announcement.replaceAll("door", "gate"));
+
+//Booleans
+const plane = "Airbus A320neo";
+console.log(plane.includes("A320")); //true
+console.log(plane.startsWith("Air"));
 /*  MAPS - stores keys and values
 //Stores data in key value pairs
 //set = add
