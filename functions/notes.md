@@ -15,7 +15,8 @@
 - `btnClose.addEventListener('click', greet)`
 - `addEventListener` is the higher-order function, and the `greet` function is the callback function
 
-```function count(){
+```
+function count(){
       let counter = 0;
       return function() {
         counter++
