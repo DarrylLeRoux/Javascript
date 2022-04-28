@@ -1,5 +1,5 @@
 'use strict';
-
+/*
 const bookings = [];
 const createBooking = function (flightNum, numPassengers = 78, price = 299) {
   const booking = {
@@ -33,10 +33,19 @@ const checkIn = function (flightNum, passenger) {
     alert('wrong passport');
   }
 };
-checkIn(flight, jonas);
-console.log(flight);
-console.log(jonas);
+// checkIn(flight, jonas);
+// console.log(flight);
+// console.log(jonas);
 
+const newPassport = function (person) {
+  person.passport = Math.trunc(Math.random() * 10000000);
+};
+newPassport(jonas);
+checkIn(flight, jonas);
+*/
+///////////////////////////////////////////////////////////
+/////////////////// First class functions /////////////////
+///////////////////////////////////////////////////////////
 /* // Coding Challenge #1
 Let's build a simple poll app!
 A poll has a question, an array of options from which people can choose, and an array with the number of replies for each option. This data is stored in the starter object below.
