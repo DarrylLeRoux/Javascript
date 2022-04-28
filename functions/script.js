@@ -12,6 +12,8 @@ const createBooking = function (flightNum, numPassengers = 78, price = 299) {
 };
 createBooking('LH123');
 createBooking('LH123', 8, 99);
+//Skip default parameter - use undefined
+createBooking('LH234', undefined, 299);
 
 /* // Coding Challenge #1
 Let's build a simple poll app!
