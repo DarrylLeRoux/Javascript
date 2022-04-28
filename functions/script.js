@@ -1,5 +1,18 @@
 'use strict';
 
+const bookings = [];
+const createBooking = function (flightNum, numPassengers = 78, price = 299) {
+  const booking = {
+    flightNum,
+    numPassengers,
+    price,
+  };
+  console.log(booking);
+  bookings.push(booking);
+};
+createBooking('LH123');
+createBooking('LH123', 8, 99);
+
 /* // Coding Challenge #1
 Let's build a simple poll app!
 A poll has a question, an array of options from which people can choose, and an array with the number of replies for each option. This data is stored in the starter object below.
