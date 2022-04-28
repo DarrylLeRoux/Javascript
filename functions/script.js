@@ -15,6 +15,28 @@ createBooking('LH123', 8, 99);
 //Skip default parameter - use undefined
 createBooking('LH234', undefined, 299);
 
+///////////////////////////////////////////////////////////
+/////////////////// Reference vs Values ///////////////////
+///////////////////////////////////////////////////////////
+const flight = 'LH234';
+const jonas = {
+  name: 'Jonas Schmedtmann',
+  passport: 267267676762,
+};
+
+const checkIn = function (flightNum, passenger) {
+  flightNum = 'LH999';
+  passenger.name = 'Mr. ' + passenger.name;
+  if (passenger.passport === 267267676762) {
+    alert('check in');
+  } else {
+    alert('wrong passport');
+  }
+};
+checkIn(flight, jonas);
+console.log(flight);
+console.log(jonas);
+
 /* // Coding Challenge #1
 Let's build a simple poll app!
 A poll has a question, an array of options from which people can choose, and an array with the number of replies for each option. This data is stored in the starter object below.
