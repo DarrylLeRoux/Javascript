@@ -47,6 +47,25 @@ checkIn(flight, jonas);
 /////////////////// First class functions /////////////////
 ///////////////////////////////////////////////////////////
 
+///////////////////////////////////////////////////////////
+/////////////////// Higher-Order Functions ////////////////
+///////////////////////////////////////////////////////////
+
+const oneWord = function (str) {
+  return str.replaceAll(' ', '').toLowerCase();
+};
+
+const upperFirstWord = function (str) {
+  const [first, ...others] = str.split(' ');
+  return [first.toUpperCase(), ...others].join(' ');
+};
+
+// Higher-Order Function
+const transformer = function (str, fn) {
+  console.log(`Transformed String: ${fn(str)}`);
+  console.log(`Transformed by: ${fn.name}`);
+};
+transformer('JavaScript is the best', upperFirstWord);
 /* // Coding Challenge #1
 Let's build a simple poll app!
 A poll has a question, an array of options from which people can choose, and an array with the number of replies for each option. This data is stored in the starter object below.
