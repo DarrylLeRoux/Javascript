@@ -66,6 +66,19 @@ const transformer = function (str, fn) {
   console.log(`Transformed by: ${fn.name}`);
 };
 transformer('JavaScript is the best', upperFirstWord);
+transformer('JavaScript is the best', oneWord);
+
+function addNum(num1, num2) {
+  const addNumTotal = num1 * num2;
+  return addNumTotal;
+}
+
+function total(fn, num3) {
+  console.log(fn + num3);
+}
+
+total(addNum(2, 3), 4);
+
 /* // Coding Challenge #1
 Let's build a simple poll app!
 A poll has a question, an array of options from which people can choose, and an array with the number of replies for each option. This data is stored in the starter object below.
