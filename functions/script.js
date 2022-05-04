@@ -50,7 +50,7 @@ checkIn(flight, jonas);
 ///////////////////////////////////////////////////////////
 /////////////////// Higher-Order Functions ////////////////
 ///////////////////////////////////////////////////////////
-
+/*
 const oneWord = function (str) {
   return str.replaceAll(' ', '').toLowerCase();
 };
@@ -78,7 +78,18 @@ function total(fn, num3) {
 }
 
 total(addNum(2, 3), 4);
+*/
+///////////////////////////////////////////////////////////
+/////////////////// Function returning Functions //////////
+///////////////////////////////////////////////////////////
+const greet = function (greeting) {
+  return function (name) {
+    console.log(`${greeting} ${name}`);
+  };
+};
 
+const greeterHey = greet('Hey');
+greeterHey('Jonas');
 /* // Coding Challenge #1
 Let's build a simple poll app!
 A poll has a question, an array of options from which people can choose, and an array with the number of replies for each option. This data is stored in the starter object below.
