@@ -88,8 +88,20 @@ const greet = function (greeting) {
   };
 };
 
-const greeterHey = greet('Hey');
-greeterHey('Jonas');
+// const greeterHey = greet('Hey');
+// greeterHey('Jonas');
+// greet('hey')('jonas');
+
+//Rewrite with Arrow Functions
+const greetArrow = (greeting) => {
+  return (name) => {
+    console.log(`${greeting} ${name}`);
+  };
+};
+
+const helloUser = greetArrow('Hey');
+helloUser('Darryl');
+
 /* // Coding Challenge #1
 Let's build a simple poll app!
 A poll has a question, an array of options from which people can choose, and an array with the number of replies for each option. This data is stored in the starter object below.
