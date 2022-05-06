@@ -112,9 +112,9 @@ const lufthansa = {
   bookings: [],
   book(flightNum, name) {
     console.log(
-      `${name} booked a seat on ${this.airline} flight ${this.iataCode} ${flightNum}`
+      `${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`
     );
-    this.bookings.push({ flight: `${this.iataCode} ${flightNum}, name` });
+    this.bookings.push({ flight: `${this.iataCode} ${flightNum}, ${name}` });
   },
 };
 
@@ -124,11 +124,17 @@ console.log(lufthansa);
 
 const euroWings = {
   name: 'Eurowings',
-  iaitaCode: 'EW',
+  iataCode: 'EW',
   bookings: [],
 };
 
+//Could write the function out book(){}, but there is no need
 const book = lufthansa.book;
+
+// call arguments = first is the Object, and then the parameters that you wish to pass in the function
+book.call(euroWings, 23, 'Sarah Williams');
+console.log(euroWings);
+
 /* // Coding Challenge #1
 Let's build a simple poll app!
 A poll has a question, an array of options from which people can choose, and an array with the number of replies for each option. This data is stored in the starter object below.
