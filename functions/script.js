@@ -102,11 +102,33 @@ const greetArrow = (greeting) => {
 const helloUser = greetArrow('Hey');
 helloUser('Darryl');
 */
-/*
+
 ///////////////////////////////////////////////////////////
 /////////////////// Call and Apply ///////////// //////////
 ///////////////////////////////////////////////////////////
+const lufthansa = {
+  airline: 'Lufthansa',
+  iataCode: 'LH',
+  bookings: [],
+  book(flightNum, name) {
+    console.log(
+      `${name} booked a seat on ${this.airline} flight ${this.iataCode} ${flightNum}`
+    );
+    this.bookings.push({ flight: `${this.iataCode} ${flightNum}, name` });
+  },
+};
 
+lufthansa.book(239, 'Jonas Schmedtmann');
+lufthansa.book(635, 'John Smith');
+console.log(lufthansa);
+
+const euroWings = {
+  name: 'Eurowings',
+  iaitaCode: 'EW',
+  bookings: [],
+};
+
+const book = lufthansa.book;
 /* // Coding Challenge #1
 Let's build a simple poll app!
 A poll has a question, an array of options from which people can choose, and an array with the number of replies for each option. This data is stored in the starter object below.
