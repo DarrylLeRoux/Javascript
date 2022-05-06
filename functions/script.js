@@ -123,7 +123,7 @@ lufthansa.book(635, 'John Smith');
 console.log(lufthansa);
 
 const euroWings = {
-  name: 'Eurowings',
+  airline: 'Eurowings',
   iataCode: 'EW',
   bookings: [],
 };
@@ -134,6 +134,22 @@ const book = lufthansa.book;
 // call arguments = first is the Object, and then the parameters that you wish to pass in the function
 book.call(euroWings, 23, 'Sarah Williams');
 console.log(euroWings);
+
+book.call(lufthansa, 278, 'Mary Cooper');
+console.log(lufthansa);
+
+// Apply metyhod
+// Takes an array
+const flightData = [278, 'Darryl Le Roux'];
+book.apply(lufthansa, flightData);
+console.log(lufthansa);
+
+// We can use the spread operator instead of using Apply()
+const spreadData = [678, 'Stacey Le Roux'];
+book.call(lufthansa, ...spreadData);
+console.log(lufthansa);
+
+// Better to use the call method with the spread operator
 
 /* // Coding Challenge #1
 Let's build a simple poll app!
