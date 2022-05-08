@@ -171,11 +171,34 @@ const euroWings = {
   bookings: [],
 };
 
+// Create variable for the book method for access
 const book = lufthansa.book;
 
+// bind() returns a function
 const bookEW = book.bind(euroWings);
 
+// Call the function with the arguments needed
 bookEW(23, 'Steven Williams');
+// Set default parameters in a variable (partial application)
+const bookEW23 = book.bind(euroWings, 23);
+// new function requires just the name now, as book(flightNum) was set as an argument in the function
+bookEW23('Jonas Schmedtmann');
+bookEW23('Martha Cooper');
+
+// With eventListeners
+lufthansa.planes = 300;
+lufthansa.buyPlane = function () {
+  this.planes++;
+  console.log(this);
+  console.log(this.planes);
+};
+
+const buyBtn = document.querySelector('.buy');
+// lufthansa Object was passed a new method
+const luftBuyPlane = lufthansa.buyPlane;
+// Need to bind the this keyword with the lufthansa object
+buyBtn.addEventListener('click', luftBuyPlane.bind(lufthansa));
+
 /* // Coding Challenge #1
 Let's build a simple poll app!
 A poll has a question, an array of options from which people can choose, and an array with the number of replies for each option. This data is stored in the starter object below.
