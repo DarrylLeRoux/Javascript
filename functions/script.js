@@ -199,6 +199,17 @@ const luftBuyPlane = lufthansa.buyPlane;
 // Need to bind the this keyword with the lufthansa object
 buyBtn.addEventListener('click', luftBuyPlane.bind(lufthansa));
 
+// Partial application
+const addTax = (rate, value) => {
+  return value + value * rate;
+};
+console.log(addTax(0.1, 200));
+
+const addVAT = addTax.bind(null, 0.23);
+
+console.log(addVAT(100));
+console.log(addVAT(23));
+
 /* // Coding Challenge #1
 Let's build a simple poll app!
 A poll has a question, an array of options from which people can choose, and an array with the number of replies for each option. This data is stored in the starter object below.
