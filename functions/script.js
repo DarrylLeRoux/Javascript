@@ -106,6 +106,7 @@ helloUser('Darryl');
 ///////////////////////////////////////////////////////////
 /////////////////// Call and Apply ///////////// //////////
 ///////////////////////////////////////////////////////////
+/*
 const lufthansa = {
   airline: 'Lufthansa',
   iataCode: 'LH',
@@ -148,9 +149,33 @@ console.log(lufthansa);
 const spreadData = [678, 'Stacey Le Roux'];
 book.call(lufthansa, ...spreadData);
 console.log(lufthansa);
+*/
+///////////////////////////////////////////////////////////
+/////////////////// Bind Method ///////////////////////////
+///////////////////////////////////////////////////////////
+const lufthansa = {
+  airline: 'Lufthansa',
+  iataCode: 'LH',
+  bookings: [],
+  book(flightNum, name) {
+    console.log(
+      `${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`
+    );
+    this.bookings.push({ flight: `${this.iataCode} ${flightNum}, ${name}` });
+  },
+};
 
-// Better to use the call method with the spread operator
+const euroWings = {
+  airline: 'Eurowings',
+  iataCode: 'EW',
+  bookings: [],
+};
 
+const book = lufthansa.book;
+
+const bookEW = book.bind(euroWings);
+
+bookEW(23, 'Steven Williams');
 /* // Coding Challenge #1
 Let's build a simple poll app!
 A poll has a question, an array of options from which people can choose, and an array with the number of replies for each option. This data is stored in the starter object below.
