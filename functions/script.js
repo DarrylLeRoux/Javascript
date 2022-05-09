@@ -214,7 +214,7 @@ console.log(addVAT(23));
 ///////////////////////////////////////////////////////////
 /////////////////// IIFE //////////////////////////////////
 ///////////////////////////////////////////////////////////
-
+/*
 // Only executed once and then disappears
 
 const runOnce = function () {
@@ -225,9 +225,29 @@ runOnce();
 
 // Function Expression is used
 // Wrap in ()
+// Call it with () immediately after
 (function () {
   console.log('This will never run again');
+})(); // Invoked
+
+// As an arrow function
+(() => {
+  console.log('this will also never run again');
 })();
+
+// Scope for data privacy
+// create a code block
+{
+  const isPrivate = 23;
+  var notPrivate = 234;
+}
+console.log(notPrivate); // can access
+console.log(isPrivate); // cannot access it
+*/
+///////////////////////////////////////////////////////////
+/////////////////// Closures //////////////////////////////
+///////////////////////////////////////////////////////////
+
 /* // Coding Challenge #1
 Let's build a simple poll app!
 A poll has a question, an array of options from which people can choose, and an array with the number of replies for each option. This data is stored in the starter object below.
