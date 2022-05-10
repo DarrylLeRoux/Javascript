@@ -82,26 +82,22 @@ total(addNum(2, 3), 4);
 ///////////////////////////////////////////////////////////
 /////////////////// Function returning Functions //////////
 ///////////////////////////////////////////////////////////
-/*
+
+const greet = function (greeting) {
   return function (name) {
     console.log(`${greeting} ${name}`);
   };
 };
 
-// const greeterHey = greet('Hey');
-// greeterHey('Jonas');
-// greet('hey')('jonas');
+const greeterHey = greet('Hey');
+greeterHey('Jonas');
+greet('hey')('jonas');
 
 //Rewrite with Arrow Functions
-const greetArrow = (greeting) => {
-  return (name) => {
-    console.log(`${greeting} ${name}`);
-  };
-};
+const greet1 = (greeting) => (name) => console.log(`${greeting} ${name}`);
 
-const helloUser = greetArrow('Hey');
-helloUser('Darryl');
-*/
+const greaterHey1 = greet1('hey');
+greaterHey1('Darryl');
 
 ///////////////////////////////////////////////////////////
 /////////////////// Call and Apply ///////////// //////////
@@ -248,6 +244,16 @@ console.log(isPrivate); // cannot access it
 /////////////////// Closures //////////////////////////////
 ///////////////////////////////////////////////////////////
 
+const secureBooking = function () {
+  let passengerCount = 0;
+
+  return function () {
+    passengerCount++;
+    console.log(`${passengerCount} passengers`);
+  };
+};
+
+const booker = secureBooking(1);
 /* // Coding Challenge #1
 Let's build a simple poll app!
 A poll has a question, an array of options from which people can choose, and an array with the number of replies for each option. This data is stored in the starter object below.
