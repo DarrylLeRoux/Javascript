@@ -82,7 +82,7 @@ total(addNum(2, 3), 4);
 ///////////////////////////////////////////////////////////
 /////////////////// Function returning Functions //////////
 ///////////////////////////////////////////////////////////
-
+/*
 const greet = function (greeting) {
   return function (name) {
     console.log(`${greeting} ${name}`);
@@ -98,7 +98,7 @@ const greet1 = (greeting) => (name) => console.log(`${greeting} ${name}`);
 
 const greaterHey1 = greet1('hey');
 greaterHey1('Darryl');
-
+*/
 ///////////////////////////////////////////////////////////
 /////////////////// Call and Apply ///////////// //////////
 ///////////////////////////////////////////////////////////
@@ -253,7 +253,10 @@ const secureBooking = function () {
   };
 };
 
-const booker = secureBooking(1);
+const booker = secureBooking();
+booker();
+booker();
+booker();
 /* // Coding Challenge #1
 Let's build a simple poll app!
 A poll has a question, an array of options from which people can choose, and an array with the number of replies for each option. This data is stored in the starter object below.
