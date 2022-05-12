@@ -84,3 +84,18 @@ console.log(arr.slice(2, -1)); // 'c', 'd'
 console.log(arr.slice()); // no arguments creates a shallow copy
 
 // SPLICE - Mutates the array
+console.log(arr.splice(2)); // removes from argument
+console.log(arr); // remainder 'a', 'b'
+
+// REVERSE - Mutates the array
+arr = ['a', 'b', 'c', 'd', 'e'];
+const arr2 = ['j', 'i', 'h', 'g', 'f'];
+console.log(arr2.reverse());
+
+// CONCAT
+const letters = arr.concat(arr2);
+console.log(letters);
+console.log([...arr, ...arr2]); // Same
+
+// JOIN
+console.log(letters.join('-'));
