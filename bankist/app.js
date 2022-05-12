@@ -76,6 +76,7 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 /////////////////////////////////////////////////
 // Array methods
 /////////////////////////////////////////////////
+/*
 let arr = ['a', 'b', 'c', 'd', 'e'];
 // SLICE - Does not mutate the array
 console.log(arr.slice(2, 4)); // start and end
@@ -99,3 +100,12 @@ console.log([...arr, ...arr2]); // Same
 
 // JOIN
 console.log(letters.join('-'));
+*/
+// AT
+// Instead of using arr[0] for an index
+// We now say array AT position x
+const dummyArr = [23, 11, 64];
+console.log(dummyArr.at(0)); // 23
+
+// Last position
+console.log(dummyArr.at(-1));
