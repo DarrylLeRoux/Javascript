@@ -100,7 +100,7 @@ console.log([...arr, ...arr2]); // Same
 
 // JOIN
 console.log(letters.join('-'));
-*/
+
 // AT
 // Instead of using arr[0] for an index
 // We now say array AT position x
@@ -109,3 +109,17 @@ console.log(dummyArr.at(0)); // 23
 
 // Last position
 console.log(dummyArr.at(-1));
+*/
+/////////////////////////////////////////////////
+// forEach
+/////////////////////////////////////////////////
+
+movements.forEach((movement, index) => {
+  if (movement > 0) {
+    console.log(`Transaction ${index + 1}: You deposited $${movement}`);
+  } else {
+    console.log(
+      `Transaction ${index + 1}: You withdrew $${Math.abs(movement)}`
+    );
+  }
+});
