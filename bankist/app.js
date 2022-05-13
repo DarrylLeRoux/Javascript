@@ -114,6 +114,8 @@ console.log(dummyArr.at(-1));
 // forEach
 /////////////////////////////////////////////////
 
+// finding the index, it is the second argument
+// forEach will not Break and Continue
 movements.forEach((movement, index) => {
   if (movement > 0) {
     console.log(`Transaction ${index + 1}: You deposited $${movement}`);
@@ -123,3 +125,12 @@ movements.forEach((movement, index) => {
     );
   }
 });
+
+// as a for of loop
+for (const [i, move] of movements.entries()) {
+  if (move > 0) {
+    console.log(`Transaction ${i + 1}: You deposited $${move}`);
+  } else {
+    console.log(`Transaction ${i + 1}: You withdrew $${Math.abs(move)}`);
+  }
+}
