@@ -61,6 +61,27 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
+const displayMovements = function (movements) {
+  containerMovements.innerHTML = '';
+
+  // loop over each "movement" and print it with "insertadjacentHTML"
+  movements.forEach((mov, index) => {
+    const type = mov > 0 ? 'deposit' : 'withdrawal';
+    const html = `
+    
+    <div class="movements__row">
+      <div class="movements__type movements__type--${type}">${
+      index + 1
+    } ${type} </div>
+      
+      <div class="movements__value">${mov}</div>
+    </div>`;
+
+    containerMovements.insertAdjacentHTML('afterbegin', html);
+  });
+};
+
+displayMovements(account1.movements);
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -107,7 +128,7 @@ console.log(dummyArr.at(-1));
 /////////////////////////////////////////////////
 // forEach
 /////////////////////////////////////////////////
-
+/*
 // finding the index, it is the second argument
 // forEach will not Break and Continue
 movements.forEach((movement, index) => {
@@ -148,3 +169,4 @@ const currenciesUnique = new Set(['USD', 'GBP', 'EUR', 'EUR']);
 currenciesUnique.forEach((currency) => {
   console.log(`${currency}`);
 });
+*/
