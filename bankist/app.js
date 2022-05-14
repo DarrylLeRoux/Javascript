@@ -173,7 +173,7 @@ currenciesUnique.forEach((currency) => {
 
 //////////////////////////
 // Coding Challenge
-
+/*
 // TEST DATA 1:
 // Julia's Data [3,5,2,12,7],
 // Kate's Data [4,1,15,8,3]
@@ -218,3 +218,4 @@ const checkDogs = function (dogsJulia, dogsKate) {
   });
 };
 checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
+*/
