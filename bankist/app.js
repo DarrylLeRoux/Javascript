@@ -185,17 +185,36 @@ currenciesUnique.forEach((currency) => {
 // Know whether it's an adult dog or puppy
 // Adult dog >= 3, Puppy > 3
 
-const dogJulia = [3, 5, 2, 12, 7];
-const dogKate = [4, 1, 15, 8, 3];
-const checkDogs = function (dogsJulia, dogsKate) {
-  const juliaCopy = dogsJulia;
-  const noCats = juliaCopy.slice(1, 3);
+// My Solution
+// const dogJulia = [3, 5, 2, 12, 7];
+// const dogKate = [4, 1, 15, 8, 3];
+// const checkDogs = function (dogsJulia, dogsKate) {
+//   const juliaCopy = dogsJulia;
+//   const noCats = juliaCopy.slice(1, 3);
 
-  const completeDogs = [...noCats, ...dogsKate];
-  completeDogs.forEach((age, i) => {
-    age >= 3
-      ? console.log(`Dog number ${i + 1} is an Adult and is ${age} years old`)
+//   const completeDogs = [...noCats, ...dogsKate];
+//   completeDogs.forEach((age, i) => {
+//     age >= 3
+//       ? console.log(`Dog number ${i + 1} is an Adult and is ${age} years old`)
+//       : console.log(`Dog number ${i + 1} is still a puppy`);
+//   });
+// };
+// checkDogs(dogJulia, dogKate);
+
+// Jonas Solution
+const checkDogs = function (dogsJulia, dogsKate) {
+  const dogsJuliaCorrected = dogsJulia.slice();
+  dogsJuliaCorrected.splice(0, 1);
+  dogsJuliaCorrected.splice(-2);
+
+  // Only using concat due to it being an array method in an array method lesson
+  // He prefers the spread operator
+  const dogs = dogsJuliaCorrected.concat(dogsKate);
+
+  dogs.forEach((dog, i) => {
+    dog >= 3
+      ? console.log(`Dog number ${i + 1} is an Adult and is ${dog} years old`)
       : console.log(`Dog number ${i + 1} is still a puppy`);
   });
 };
-checkDogs(dogJulia, dogKate);
+checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
