@@ -181,3 +181,21 @@ currenciesUnique.forEach((currency) => {
 // TEST DATA 2:
 // Julia's Data [9,16,6,8,3]
 // Kate's Data [10,5,6,1,4]
+
+// Know whether it's an adult dog or puppy
+// Adult dog >= 3, Puppy > 3
+
+const dogJulia = [3, 5, 2, 12, 7];
+const dogKate = [4, 1, 15, 8, 3];
+const checkDogs = function (dogsJulia, dogsKate) {
+  const juliaCopy = dogsJulia;
+  const noCats = juliaCopy.slice(1, 3);
+
+  const completeDogs = [...noCats, ...dogsKate];
+  completeDogs.forEach((age, i) => {
+    age >= 3
+      ? console.log(`Dog number ${i + 1} is an Adult and is ${age} years old`)
+      : console.log(`Dog number ${i + 1} is still a puppy`);
+  });
+};
+checkDogs(dogJulia, dogKate);
