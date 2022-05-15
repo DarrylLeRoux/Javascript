@@ -188,11 +188,18 @@ const movementsUSD = movements.map((dollar) => {
 console.log(movementsUSD);
 
 // for of copy
-const convertCopy = [];
-for (const mov of movements) {
-  convertCopy.push(mov * eurToUsd);
-}
-console.log(convertCopy);
+// const convertCopy = [];
+// for (const mov of movements) {
+//   convertCopy.push(mov * eurToUsd);
+// }
+// console.log(convertCopy);
+
+const movementsDescriptions = movements.map((mov, i) => {
+  return `Transaction ${i + 1}: You ${
+    mov > 0 ? 'deposited' : 'withdrew'
+  } $${Math.abs(mov)}`;
+});
+console.log(movementsDescriptions);
 //////////////////////////
 // Coding Challenge
 /*
