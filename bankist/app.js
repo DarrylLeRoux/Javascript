@@ -183,6 +183,13 @@ const movementsUSD = movements.map((dollar) => {
 });
 
 console.log(movementsUSD);
+
+// for of copy
+const convertCopy = [];
+for (const mov of movements) {
+  convertCopy.push(mov * eurToUsd);
+}
+console.log(convertCopy);
 //////////////////////////
 // Coding Challenge
 /*
