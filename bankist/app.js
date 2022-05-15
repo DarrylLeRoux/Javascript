@@ -170,7 +170,19 @@ currenciesUnique.forEach((currency) => {
   console.log(`${currency}`);
 });
 */
+/////////////////////////////////////////////////
+// Map
+/////////////////////////////////////////////////
 
+// Returns a new array with whatever happened in the argument
+// Dollar will be converted to Eur
+const eurToUsd = 1.1;
+
+const movementsUSD = movements.map((dollar) => {
+  return dollar * eurToUsd;
+});
+
+console.log(movementsUSD);
 //////////////////////////
 // Coding Challenge
 /*
