@@ -182,6 +182,9 @@ const movementsUSD = movements.map((dollar) => {
   return dollar * eurToUsd;
 });
 
+// Arrow copy
+// const movementsUSD = movements.map((dollar) => dollar * eurToUsd);
+
 console.log(movementsUSD);
 
 // for of copy
