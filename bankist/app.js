@@ -61,6 +61,7 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
+// Show transactions
 const displayMovements = function (movements) {
   containerMovements.innerHTML = '';
 
@@ -83,19 +84,26 @@ const displayMovements = function (movements) {
 
 displayMovements(account1.movements);
 
-function createUsernames(fullName) {
-  return fullName
-    .toLowerCase()
-    .split(' ')
-    .map((name) => {
-      return name[0];
-    })
-    .join('');
+// Get usernames Function
+function createUsernames(accs) {
+  //Loop over each account
+  accs.forEach((acc) => {
+    //Add a username key to the Account Object
+    //It will take in the username function
+    acc.username = acc.owner
+      .toLowerCase()
+      .split(' ')
+      .map((name) => {
+        return name[0];
+      })
+      .join('');
+  });
+  console.log(accs);
 }
 
-console.log(createUsernames('Darryl Le Roux'));
+createUsernames(accounts);
 
-const user = 'Steven Thomas Williams';
+// Loop over all usernames for initials
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
