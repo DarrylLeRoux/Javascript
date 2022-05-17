@@ -82,6 +82,15 @@ const displayMovements = function (movements) {
 };
 
 displayMovements(account1.movements);
+
+const user = 'Steven Thomas Williams';
+const username = user.toLowerCase().split(' ');
+
+let initialName = [];
+const initials = username.forEach((name) => {
+  initialName.push(name[0]);
+});
+console.log(initialName);
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -173,7 +182,7 @@ currenciesUnique.forEach((currency) => {
 /////////////////////////////////////////////////
 // Map
 /////////////////////////////////////////////////
-
+/*
 // Returns a new array with whatever happened in the argument
 // Dollar will be converted to Eur
 const eurToUsd = 1.1;
@@ -200,6 +209,7 @@ const movementsDescriptions = movements.map((mov, i) => {
   } $${Math.abs(mov)}`;
 });
 console.log(movementsDescriptions);
+
 //////////////////////////
 // Coding Challenge
 /*
