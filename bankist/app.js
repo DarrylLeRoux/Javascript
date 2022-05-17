@@ -83,16 +83,20 @@ const displayMovements = function (movements) {
 
 displayMovements(account1.movements);
 
-const user = 'Steven Thomas Williams';
-const username = user
-  .toLowerCase()
-  .split(' ')
-  .map((name) => {
-    return name[0];
-  })
-  .join('');
+function createUsernames(fullName) {
+  return fullName
+    .toLowerCase()
+    .split(' ')
+    .map((name) => {
+      return name[0];
+    })
+    .join('');
+}
 
-console.log(username);
+console.log(createUsernames('Darryl Le Roux'));
+
+const user = 'Steven Thomas Williams';
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
