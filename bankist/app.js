@@ -108,9 +108,17 @@ createUsernames(accounts);
 // LECTURES
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+// Filter deposits
 const deposits = movements.filter((mov) => {
   return mov > 0;
 });
+
+// Filter withdrawals
+const withdrawals = movements.filter((mov) => {
+  return mov < 0;
+});
+console.log(withdrawals);
 
 // Same as filter with for of loop
 let depositArr = [];
