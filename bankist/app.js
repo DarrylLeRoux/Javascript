@@ -111,7 +111,15 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 const deposits = movements.filter((mov) => {
   return mov > 0;
 });
-console.log(deposits);
+
+// Same as filter with for of loop
+let depositArr = [];
+for (const mov of movements) {
+  if (mov > 0) {
+    depositArr.push(mov);
+  }
+}
+console.log(depositArr);
 /////////////////////////////////////////////////
 // Array methods
 /////////////////////////////////////////////////
