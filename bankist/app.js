@@ -135,8 +135,11 @@ const withdrawals = movements.filter((mov) => {
 });
 console.log(withdrawals);
 
-console.log(movements);
-
+// Maximum Value of movements array
+const highest = movements.reduce((total, currentValue) => {
+  return total > currentValue ? total : currentValue;
+}, movements[0]);
+console.log(highest);
 // Same as filter with for of loop
 // let depositArr = [];
 // for (const mov of movements) {
