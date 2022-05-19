@@ -120,14 +120,30 @@ const withdrawals = movements.filter((mov) => {
 });
 console.log(withdrawals);
 
+console.log(movements);
+
+// Accumulator -> SNOWBALL
+const balance = movements.reduce((accumulator, currentValue, index, arr) => {
+  // Accumulator starts at 0
+  // currentValue is the element in the array
+  return accumulator + currentValue;
+}, 0);
+console.log(balance);
+
+const num = [1, 1, 1, 1, 1];
+const add = num.reduce((acc, cur) => {
+  return acc + cur;
+}, 0);
+
+console.log(add);
 // Same as filter with for of loop
-let depositArr = [];
-for (const mov of movements) {
-  if (mov > 0) {
-    depositArr.push(mov);
-  }
-}
-console.log(depositArr);
+// let depositArr = [];
+// for (const mov of movements) {
+//   if (mov > 0) {
+//     depositArr.push(mov);
+//   }
+// }
+// console.log(depositArr);
 /////////////////////////////////////////////////
 // Array methods
 /////////////////////////////////////////////////
