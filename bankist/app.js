@@ -84,6 +84,21 @@ const displayMovements = function (movements) {
 
 displayMovements(account1.movements);
 
+// Print Balance to page
+// Accumulator -> SNOWBALL
+const calcDisplayBalance = function (movements) {
+  const balance = account1.movements.reduce(
+    (accumulator, currentValue, index, arr) => {
+      // Accumulator starts at 0
+      // currentValue is the element in the array
+      return accumulator + currentValue;
+    },
+    0
+  );
+  labelBalance.textContent = `${balance}€`;
+};
+calcDisplayBalance(account1.movements);
+
 // Get usernames Function
 function createUsernames(accs) {
   //Loop over each account
@@ -122,20 +137,6 @@ console.log(withdrawals);
 
 console.log(movements);
 
-// Accumulator -> SNOWBALL
-const balance = movements.reduce((accumulator, currentValue, index, arr) => {
-  // Accumulator starts at 0
-  // currentValue is the element in the array
-  return accumulator + currentValue;
-}, 0);
-console.log(balance);
-
-const num = [1, 1, 1, 1, 1];
-const add = num.reduce((acc, cur) => {
-  return acc + cur;
-}, 0);
-
-console.log(add);
 // Same as filter with for of loop
 // let depositArr = [];
 // for (const mov of movements) {
