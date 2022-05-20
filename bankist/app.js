@@ -65,7 +65,7 @@ const inputClosePin = document.querySelector('.form__input--pin');
 const displayMovements = function (movements) {
   containerMovements.innerHTML = '';
 
-  // loop over each "movement" and print it with "insertadjacentHTML"
+  // loop over each "movement" and print it with "insertAdjacentHTML"
   movements.forEach((mov, index) => {
     const type = mov > 0 ? 'deposit' : 'withdrawal';
     const html = `
