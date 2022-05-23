@@ -119,13 +119,17 @@ function createUsernames(accs) {
 createUsernames(accounts);
 
 const eurToUsd = 1.1;
+// PIPELINE
 const totalDepositsinUSD = movements
+  // Filter all payments that are deposits (Greater than 0)
   .filter((mov) => {
     return mov > 0;
   })
+  // Go over each returned payment and convert it to USD
   .map((mov) => {
     return mov * eurToUsd;
   })
+  // Take all the payments and add them to a final deposited amount
   .reduce((acc, mov) => {
     return acc + mov;
   }, 0);
