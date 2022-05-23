@@ -99,6 +99,15 @@ const calcDisplayBalance = function (movements) {
 };
 calcDisplayBalance(account1.movements);
 
+// Calculate the deposits and withdrawals
+const calcDisplaySummary = function (movements) {
+  const income = movements
+    .filter((mov) => mov > 0)
+    .reduce((acc, mov) => acc + mov, 0);
+  labelSumIn.textContent = `${income}€`;
+};
+calcDisplaySummary(account1.movements);
+
 // Get usernames Function
 function createUsernames(accs) {
   //Loop over each account
