@@ -126,7 +126,8 @@ const totalDepositsinUSD = movements
     return mov > 0;
   })
   // Go over each returned payment and convert it to USD
-  .map((mov) => {
+  .map((mov, i, arr) => {
+    console.log(arr); // We can debug by using the arr parameter we have access to
     return mov * eurToUsd;
   })
   // Take all the payments and add them to a final deposited amount
