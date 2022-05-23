@@ -34,6 +34,7 @@ const account4 = {
 };
 
 const accounts = [account1, account2, account3, account4];
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 // Elements
 const labelWelcome = document.querySelector('.welcome');
@@ -117,11 +118,23 @@ function createUsernames(accs) {
 
 createUsernames(accounts);
 
+const eurToUsd = 1.1;
+const totalDepositsinUSD = movements
+  .filter((mov) => {
+    return mov > 0;
+  })
+  .map((mov) => {
+    return mov * eurToUsd;
+  })
+  .reduce((acc, mov) => {
+    return acc + mov;
+  }, 0);
+
+console.log(totalDepositsinUSD);
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
-
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 // Filter deposits
 const deposits = movements.filter((mov) => {

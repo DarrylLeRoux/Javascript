@@ -1,4 +1,4 @@
-## My Journey to learn Javascript!
+# My Journey to learn Javascript!
 
 I have made this repository to keep track of my learning.
 Should you wish to follow along with me, you can have a look at each branch to see how the journey is going.
