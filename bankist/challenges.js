@@ -14,3 +14,15 @@ const calcAverageHumanAge = (ages) =>
 
 const avg = calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
 console.log(avg);
+
+// Nested forEach
+let nathanPals = ['John', 'Jack'];
+let peterPals = ['Koos', 'Frikkie'];
+
+let pals = [...nathanPals, ...peterPals];
+let allPals = [];
+pals.forEach((friend, i) => {
+  allPals.push(friend);
+  console.log(`Friend ${i + 1} is ${friend}`);
+  console.log(allPals);
+});
