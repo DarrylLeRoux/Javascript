@@ -62,6 +62,32 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
+////////////////////////////////////////////////////////////////////////
+// LOGIN
+////////////////////////////////////////////////////////////////////////
+// For use in the Login eventListener
+let currentAccount;
+// Define the eventListener for the button click
+btnLogin.addEventListener('click', (e) => {
+  // prevent form from submitting
+  e.preventDefault();
+  // Find the user in the accounts
+  currentAccount = accounts.find(
+    (acc) => acc.username === inputLoginUsername.value
+  );
+  // Check the pin against the user
+  if (currentAccount?.pin === Number(inputLoginPin.value)) {
+    // Display UI and Welcome Message
+
+    // Display Movements
+
+    // Display Balance
+
+    // Display Summary
+    console.log(currentAccount);
+  }
+});
+
 // Show transactions
 const displayMovements = function (movements) {
   containerMovements.innerHTML = '';
