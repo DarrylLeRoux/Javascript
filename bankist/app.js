@@ -82,12 +82,18 @@ btnLogin.addEventListener('click', (e) => {
       currentAccount.owner.split(' ')[0]
     }`;
     containerApp.style.opacity = 100;
+
+    // Clear input fields
+    inputLoginUsername.value = '';
+    inputLoginPin.value = '';
+    inputLoginPin.blur();
+
     // Display Movements
     displayMovements(currentAccount.movements);
     // Display Balance
     calcDisplayBalance(currentAccount.movements);
     // Display Summary
-    calcDisplaySummary(currentAccount.movements);
+    calcDisplaySummary(currentAccount);
   }
 });
 
@@ -116,41 +122,38 @@ displayMovements(account1.movements);
 // Print Balance to page
 // Accumulator -> SNOWBALL
 const calcDisplayBalance = function (movements) {
-  const balance = account1.movements.reduce(
-    (accumulator, currentValue, index, arr) => {
-      // Accumulator starts at 0
-      // currentValue is the element in the array
-      return accumulator + currentValue;
-    },
-    0
-  );
+  const balance = movements.reduce((accumulator, currentValue, index, arr) => {
+    // Accumulator starts at 0
+    // currentValue is the element in the array
+    return accumulator + currentValue;
+  }, 0);
   labelBalance.textContent = `${balance}€`;
 };
 calcDisplayBalance(account1.movements);
 
 // Calculate the deposits and withdrawals
-const calcDisplaySummary = function (movements) {
-  const income = movements
+const calcDisplaySummary = function (account) {
+  const income = account.movements
     .filter((mov) => mov > 0)
     .reduce((acc, mov) => acc + mov, 0);
   labelSumIn.textContent = `${income}€`;
 
-  const withdrawals = movements
+  const withdrawals = account.movements
     .filter((mov) => mov < 0)
     .reduce((acc, mov) => acc + mov, 0);
   labelSumOut.textContent = `${Math.abs(withdrawals)}€`; // Math.abs removes -
 
-  const interest = movements
+  const interest = account.movements
     .filter((mov) => mov > 0)
     // Add interest to each deposit
-    .map((deposit) => (deposit * 1.2) / 100)
+    .map((deposit) => (deposit * account.interestRate) / 100)
     // filter all interests that are below 1
     .filter((int) => int >= 1)
     // Add all amounts that have interest
     .reduce((acc, int) => acc + int, 0);
   labelSumInterest.textContent = `${interest}€`;
 };
-calcDisplaySummary(account1.movements);
+// calcDisplaySummary(account1.movements);
 
 // Get usernames Function
 function createUsernames(accs) {
