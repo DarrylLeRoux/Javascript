@@ -78,13 +78,16 @@ btnLogin.addEventListener('click', (e) => {
   // Check the pin against the user
   if (currentAccount?.pin === Number(inputLoginPin.value)) {
     // Display UI and Welcome Message
-
+    labelWelcome.textContent = `Welcome Back ${
+      currentAccount.owner.split(' ')[0]
+    }`;
+    containerApp.style.opacity = 100;
     // Display Movements
-
+    displayMovements(currentAccount.movements);
     // Display Balance
-
+    calcDisplayBalance(currentAccount.movements);
     // Display Summary
-    console.log(currentAccount);
+    calcDisplaySummary(currentAccount.movements);
   }
 });
 
