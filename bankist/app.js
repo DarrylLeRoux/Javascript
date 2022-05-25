@@ -302,6 +302,19 @@ const movementsDescriptions = movements.map((mov, i) => {
 });
 console.log(movementsDescriptions);
 
+/////////////////////////////////////////////////
+// find
+/////////////////////////////////////////////////
+/*
+*/
+// returns first condition that meets true
+const firstWithdrawal = movements.find((mov) => mov < 0);
+console.log(firstWithdrawal);
+
+console.log(accounts);
+const account = accounts.find((acc) => acc.owner === 'Jessica Davis');
+console.log(account);
+
 //////////////////////////
 // Coding Challenge
 /*
