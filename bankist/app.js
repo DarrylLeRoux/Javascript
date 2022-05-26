@@ -62,6 +62,18 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
+// Update UI
+const updateUI = function (acc) {
+  {
+    // Display Movements
+    displayMovements(acc.movements);
+    // Display Balance
+    calcDisplayBalance(acc);
+    // Display Summary
+    calcDisplaySummary(acc);
+  }
+};
+
 ////////////////////////////////////////////////////////////////////////
 // LOGIN
 ////////////////////////////////////////////////////////////////////////
@@ -88,12 +100,7 @@ btnLogin.addEventListener('click', (e) => {
     inputLoginPin.value = '';
     inputLoginPin.blur();
 
-    // Display Movements
-    displayMovements(currentAccount.movements);
-    // Display Balance
-    calcDisplayBalance(currentAccount.movements);
-    // Display Summary
-    calcDisplaySummary(currentAccount);
+    updateUI(currentAccount);
   }
 });
 
@@ -108,6 +115,18 @@ btnTransfer.addEventListener('click', (e) => {
   const receiverAccount = accounts.find(
     (acc) => acc.username === inputTransferTo.value
   );
+
+  if (
+    amount > 0 &&
+    receiverAcc &&
+    currentAccount.balance >= amount &&
+    receiverAccount?.username !== currentAccount.username
+  ) {
+    // Deduct the withdrawal from the user
+    // Add the Transfer amount to the recipient
+    currentAccount.movements.push(-amount);
+    receiverAccount.movements.push(amount);
+  }
 });
 // Show transactions
 const displayMovements = function (movements) {
@@ -133,15 +152,17 @@ displayMovements(account1.movements);
 
 // Print Balance to page
 // Accumulator -> SNOWBALL
-const calcDisplayBalance = function (movements) {
-  const balance = movements.reduce((accumulator, currentValue, index, arr) => {
-    // Accumulator starts at 0
-    // currentValue is the element in the array
-    return accumulator + currentValue;
-  }, 0);
-  labelBalance.textContent = `${balance}€`;
+const calcDisplayBalance = function (acc) {
+  acc.balance = acc.movements.reduce(
+    (accumulator, currentValue, index, arr) => {
+      // Accumulator starts at 0
+      // currentValue is the element in the array
+      return accumulator + currentValue;
+    },
+    0
+  );
+  labelBalance.textContent = `${acc.balance}€`;
 };
-calcDisplayBalance(account1.movements);
 
 // Calculate the deposits and withdrawals
 const calcDisplaySummary = function (account) {
