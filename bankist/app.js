@@ -100,6 +100,7 @@ btnLogin.addEventListener('click', (e) => {
     inputLoginPin.value = '';
     inputLoginPin.blur();
 
+    // Update the UI
     updateUI(currentAccount);
   }
 });
@@ -115,10 +116,13 @@ btnTransfer.addEventListener('click', (e) => {
   const receiverAccount = accounts.find(
     (acc) => acc.username === inputTransferTo.value
   );
+  // Clear input fields
+  inputTransferAmount.value = '';
+  inputTransferTo.value = '';
 
   if (
     amount > 0 &&
-    receiverAcc &&
+    receiverAccount &&
     currentAccount.balance >= amount &&
     receiverAccount?.username !== currentAccount.username
   ) {
@@ -126,6 +130,9 @@ btnTransfer.addEventListener('click', (e) => {
     // Add the Transfer amount to the recipient
     currentAccount.movements.push(-amount);
     receiverAccount.movements.push(amount);
+
+    // Update the UI
+    updateUI(currentAccount);
   }
 });
 // Show transactions
