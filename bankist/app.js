@@ -97,6 +97,18 @@ btnLogin.addEventListener('click', (e) => {
   }
 });
 
+////////////////////////////////////////////////////////////////////////
+// IMPLEMENTING TRANSFERS
+////////////////////////////////////////////////////////////////////////
+btnTransfer.addEventListener('click', (e) => {
+  e.preventDefault();
+  // Store the amount to transfer from the input field
+  const amount = Number(inputTransferAmount.value);
+  // Find the account of the user input
+  const receiverAccount = accounts.find(
+    (acc) => acc.username === inputTransferTo.value
+  );
+});
 // Show transactions
 const displayMovements = function (movements) {
   containerMovements.innerHTML = '';
