@@ -173,7 +173,9 @@ const displayMovements = function (movements) {
 };
 displayMovements(account1.movements);
 
+//////////////////////////////////////////////////////////////////////////
 // Print Balance to page
+//////////////////////////////////////////////////////////////////////////
 // Accumulator -> SNOWBALL
 const calcDisplayBalance = function (acc) {
   acc.balance = acc.movements.reduce(
@@ -211,7 +213,9 @@ const calcDisplaySummary = function (account) {
 };
 // calcDisplaySummary(account1.movements);
 
+//////////////////////////////////////////////////////////////////////////
 // Get usernames Function
+//////////////////////////////////////////////////////////////////////////
 function createUsernames(accs) {
   //Loop over each account
   accs.forEach((acc) => {
