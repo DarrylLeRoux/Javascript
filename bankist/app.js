@@ -262,7 +262,19 @@ console.log(totalDepositsinUSD);
 
 btnClose.addEventListener('click', (e) => {
   e.preventDefault();
-  console.log('Delete');
+  if (
+    inputCloseUsername.value === currentAccount.owner &&
+    Number(inputClosePin.value) === currentAccount.pin
+  ) {
+    const index = accounts.findIndex((acc) => {
+      // Loops over the array and finds the condition to be true
+
+      acc.username === currentAccount.username;
+    });
+    console.log(index);
+
+    // accounts.splice(index, 1);
+  }
 });
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
