@@ -262,18 +262,21 @@ console.log(totalDepositsinUSD);
 
 btnClose.addEventListener('click', (e) => {
   e.preventDefault();
+
   if (
-    inputCloseUsername.value === currentAccount.owner &&
+    inputCloseUsername.value === currentAccount.username &&
     Number(inputClosePin.value) === currentAccount.pin
   ) {
     const index = accounts.findIndex((acc) => {
       // Loops over the array and finds the condition to be true
-
       acc.username === currentAccount.username;
     });
-    console.log(index);
-
-    // accounts.splice(index, 1);
+    // Delete the user from the user array
+    accounts.splice(index, 1);
+    // Hide UI
+    containerApp.style.opacity = 0;
+    // Clear inputs
+    inputCloseUsername.value = inputClosePin.value = '';
   }
 });
 /////////////////////////////////////////////////
