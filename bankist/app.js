@@ -155,11 +155,17 @@ btnTransfer.addEventListener('click', (e) => {
 /////////////////////////////////////////////////////////////////////////
 // Show transactions
 ////////////////////////////////////////////////////////////////////////
-const displayMovements = function (movements) {
+const displayMovements = function (movements, sort = false) {
   containerMovements.innerHTML = '';
 
   // loop over each "movement" and print it with "insertAdjacentHTML"
-  movements.forEach((mov, index) => {
+
+  const movs = sort
+    ? movements.slice().sort((a, b) => {
+        return a - b;
+      })
+    : movements;
+  movs.forEach((mov, index) => {
     const type = mov > 0 ? 'deposit' : 'withdrawal';
     const html = `
     
@@ -234,9 +240,11 @@ function createUsernames(accs) {
   });
   console.log(accs);
 }
-
 createUsernames(accounts);
 
+//////////////////////////////////////////////////////////////////////////
+// Get Total Deposits
+//////////////////////////////////////////////////////////////////////////
 const eurToUsd = 1.1;
 // PIPELINE
 const totalDepositsinUSD = movements
@@ -297,6 +305,16 @@ btnClose.addEventListener('click', (e) => {
     // Clear inputs
     inputCloseUsername.value = inputClosePin.value = '';
   }
+});
+
+//////////////////////////////////////////////////////////////////////////
+// Sort Movements
+//////////////////////////////////////////////////////////////////////////
+let sorted = false;
+btnSort.addEventListener('click', (e) => {
+  e.preventDefault();
+  displayMovements(currentAccount.movements, !sorted);
+  sorted = !sorted;
 });
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
