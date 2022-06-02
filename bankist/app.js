@@ -259,7 +259,22 @@ console.log(totalDepositsinUSD);
 ////////////////////////////////////////////////////////////////////////
 // LOAN AMOUNT
 ////////////////////////////////////////////////////////////////////////
+btnLoan.addEventListener('click', (e) => {
+  e.preventDefault();
+  const amount = Number(inputLoanAmount.value);
+  if (
+    amount > 0 &&
+    currentAccount.movements.some((mov) => mov >= amount * 0.1)
+  ) {
+    // Add movement
+    currentAccount.movements.push(amount);
 
+    // Update UI
+    updateUI(currentAccount);
+  }
+
+  inputLoanAmount.value = '';
+});
 ////////////////////////////////////////////////////////////////////////
 // CLOSING ACCOUNT
 ////////////////////////////////////////////////////////////////////////
@@ -494,3 +509,9 @@ const anyDeposits = movements.some((mov) => mov > 0);
 console.log(anyDeposits);
 
 console.log(movements.some((mov) => mov === -130));
+
+// FLAT
+const [bankTotal] = accounts.map((account) => {
+  return account.movements;
+});
+console.log(bankTotal);
