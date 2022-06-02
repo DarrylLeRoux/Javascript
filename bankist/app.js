@@ -509,9 +509,9 @@ const anyDeposits = movements.some((mov) => mov > 0);
 console.log(anyDeposits);
 
 console.log(movements.some((mov) => mov === -130));
-
+/////////////////////////////////////////////////////////
 // FLAT
-
+/////////////////////////////////////////////////////////
 // Map over the account array to get each accounts movements
 // store in variable
 // const accountMovements = accounts.map((account) => {
@@ -542,3 +542,25 @@ const accountMovements2 = accounts
   })
   .reduce((acc, mov) => acc + mov, 0);
 console.log(accountMovements);
+
+/////////////////////////////////////////////////////////
+// SORT
+/////////////////////////////////////////////////////////
+
+// Strings
+const owners = ['Jonas', 'Zach', 'Adam', 'Martha'];
+console.log(owners.sort()); // sorts alphabetically
+
+// Numbers
+// return something less than 0 A, B
+// return something larger than 0 B, A
+movements.sort((a, b) => {
+  if (a > b) return 1;
+
+  if (b > a) return -1;
+});
+console.log(movements);
+
+// Easier syntax
+movements.sort((a, b) => a - b);
+console.log(movements);
