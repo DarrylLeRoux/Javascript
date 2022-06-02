@@ -257,6 +257,10 @@ const totalDepositsinUSD = movements
 console.log(totalDepositsinUSD);
 
 ////////////////////////////////////////////////////////////////////////
+// LOAN AMOUNT
+////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////
 // CLOSING ACCOUNT
 ////////////////////////////////////////////////////////////////////////
 
@@ -481,3 +485,12 @@ const checkDogs = function (dogsJulia, dogsKate) {
 };
 checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
 */
+
+console.log(movements);
+console.log(movements.includes(-130));
+
+// Have there been any deposits?
+const anyDeposits = movements.some((mov) => mov > 0);
+console.log(anyDeposits);
+
+console.log(movements.some((mov) => mov === -130));
