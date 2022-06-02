@@ -582,3 +582,23 @@ console.log(movements);
 // Easier syntax
 movements.sort((a, b) => a - b);
 console.log(movements);
+
+/////////////////////////////////////////////////////////
+// FROM
+/////////////////////////////////////////////////////////
+
+// fill an array with the number 1, 7 times
+const y = Array.from({ length: 7 }, () => 1);
+console.log(y);
+
+// fill an array with 1 - 7
+const x = Array.from({ length: 7 }, (_, i) => i + 1);
+console.log(x);
+
+labelBalance.addEventListener('click', () => {
+  const movementsUI = Array.from(
+    document.querySelectorAll('.movements__value')
+  );
+
+  console.log(movementsUI);
+});
