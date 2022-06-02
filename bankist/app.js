@@ -511,7 +511,34 @@ console.log(anyDeposits);
 console.log(movements.some((mov) => mov === -130));
 
 // FLAT
-const [bankTotal] = accounts.map((account) => {
-  return account.movements;
-});
-console.log(bankTotal);
+
+// Map over the account array to get each accounts movements
+// store in variable
+// const accountMovements = accounts.map((account) => {
+//   return account.movements;
+// });
+// console.log(accountMovements);
+
+// // store all accountMovements into a new variable with flat()
+// const allMovements = accountMovements.flat();
+// // Go over the allMovements array and reduce it down to one figure
+// const totalMovements = allMovements.reduce((acc, mov) => acc + mov, 0);
+// console.log(allMovements);
+// console.log(totalMovements);
+
+const accountMovements = accounts
+  .map((account) => {
+    return account.movements;
+  })
+  .flat()
+  .reduce((acc, mov) => acc + mov, 0);
+console.log(accountMovements);
+
+// flatMap combines flat at the end of the initial map
+// However, it only goes one level deep
+const accountMovements2 = accounts
+  .flatMap((account) => {
+    return account.movements;
+  })
+  .reduce((acc, mov) => acc + mov, 0);
+console.log(accountMovements);
