@@ -681,3 +681,28 @@ labelBalance.addEventListener('click', () => {
 
 
 */
+
+////////////////////////////////////////////////////////
+// Array practice
+////////////////////////////////////////////////////////
+
+// Add all deposits together
+const bankDepositSum = accounts
+  .flatMap((acc) => acc.movements)
+  .filter((mov) => mov > 0)
+  .reduce((sum, cur) => sum + cur, 0);
+console.log(bankDepositSum);
+
+// Count deposits that are at least $1000
+const numDeposits1000 = accounts
+  .flatMap((acc) => acc.movements)
+  .filter((mov) => mov >= 1000).length;
+console.log(numDeposits1000);
+
+// Alternative
+const numDeposits10002 = accounts
+  .flatMap((acc) => acc.movements)
+  .reduce((count, cur) => {
+    return cur >= 1000 ? ++count : count;
+  }, 0);
+console.log(numDeposits10002);
