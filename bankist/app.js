@@ -706,3 +706,30 @@ const numDeposits10002 = accounts
     return cur >= 1000 ? ++count : count;
   }, 0);
 console.log(numDeposits10002);
+
+// Use reduce and create a new object
+const { bankDeposits, bankWithdrawals } = accounts
+  .flatMap((acc) => acc.movements)
+  .reduce(
+    (sums, cur) => {
+      // cur > 0 ? (sums.deposits += cur) : (sums.withdrawals += cur);
+      sums[cur > 0 ? 'bankDeposits' : 'bankWithdrawals'] += cur;
+      return sums;
+    },
+    { bankDeposits: 0, bankWithdrawals: 0 }
+  );
+console.log(bankDeposits, bankWithdrawals);
+
+// Covert string to titlecase
+const convertTitleCase = (title) => {
+  const exceptions = ['a', 'an', 'the', 'but', 'or', 'on', 'in', 'with'];
+
+  const titleCase = title
+    .toLowerCase()
+    .split(' ')
+    .map((word) =>
+      exceptions.includes(word) ? word : word[0].toUpperCase() + word.slice(1)
+    );
+  return titleCase;
+};
+console.log(convertTitleCase('this is a nice title'));
