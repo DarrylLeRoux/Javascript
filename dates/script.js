@@ -260,5 +260,42 @@ console.log(23 === 23.0); // true
 // Base 10 - 0 to 9
 // Base 2 - 0 to 1 (Binary)
 
+// Convert strings to numbers
 console.log(Number("23"));
 console.log(+"23");
+
+// parsing
+console.log(Number.parseInt("30px", 10)); // JS parses for the number = 30
+console.log(Number.parseInt("px3", 10)); // NaN - needs to be first
+
+console.log(Number.parseFloat("2.5rem")); // 2.5
+console.log(parseFloat("3.4")); // old way without Number()
+
+// Check is value is a number
+console.log(Number.isFinite(20)); //  true
+console.log(Number.isFinite("20")); // false
+console.log(Number.isFinite(+"20Ex")); // false - not a number
+
+// Math and rounding
+
+console.log(Math.sqrt(25)); // square root
+console.log(25 ** (1 / 2)); // square root
+console.log(8 ** (1 / 3)); // cubed
+
+console.log(Math.max(1, 56, 89, 2, 45)); // 89
+console.log(Math.min(1, 3, 5, 67, 2)); // 1
+
+console.log(Math.PI * Number.parseFloat("10px") ** 2); // PI
+
+console.log(Math.trunc(Math.random() * 6) + 1);
+
+const randomInt = (min, max) =>
+  Math.trunc(Math.random() * (max - min) + 1) + min;
+// 0...1 -> 0...(max - min)
+console.log(randomInt(10, 20));
+
+// Rounding integers
+console.log(Math.trunc(23.3)); // removes decimal
+console.log(Math.round(23.9)); // rounds up
+console.log(Math.ceil(23.9)); // rounds up
+console.log(Math.floor(23.9)); // rounds down
