@@ -304,3 +304,6 @@ console.log(Math.floor(23.9)); // rounds down
 console.log((2.7).toFixed(0)); // "3"
 console.log((2.7).toFixed(3)); // "2.700"
 console.log(+(2.7).toFixed(3)); // 2.7
+
+// This is comment
+// Just to keep GitHub happy
