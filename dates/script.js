@@ -337,3 +337,19 @@ console.log(PI);
 
 console.log(Number("2_000")); // NaN
 console.log(parseInt("230_00)")); // NaN
+
+// Bigint
+console.log(2 ** 53 - 1);
+console.log(Number.MAX_SAFE_INTEGER); // Largest safe number allowed in JS
+
+console.log(78787878786862876487628376487263n);
+console.log(BigInt(864872687368276));
+
+// Operations
+console.log(10000n + 10000n);
+console.log(10000000n * 26846810000n);
+
+// Cannot mix BigInt with normal numbers
+// const huge = 20200292982828n
+// const num = 23
+// Uncaught error
