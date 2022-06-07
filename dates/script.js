@@ -327,3 +327,7 @@ labelBalance.addEventListener("click", function () {
     if (i % 3 === 0) row.style.backgroundColor = "blue";
   });
 });
+
+// Numeric Separators
+const diameter = 28_746_000_000;
+console.log(diameter); // 28746000000
