@@ -305,5 +305,25 @@ console.log((2.7).toFixed(0)); // "3"
 console.log((2.7).toFixed(3)); // "2.700"
 console.log(+(2.7).toFixed(3)); // 2.7
 
-// This is comment
-// Just to keep GitHub happy
+// Remainder
+console.log(5 % 2); // 1
+console.log(5 / 2); // 5 = 2 * 2 + 1
+console.log(8 % 3); // 2
+console.log(8 / 3); // 8 = 2 * 3 + 2
+
+// Even or Odd
+console.log(6 % 2); // 0
+console.log(6 / 2); // 3
+
+const isEven = (n) => n % 2 === 0;
+
+console.log(isEven(8)); // true
+console.log(isEven(23)); // false
+console.log(isEven(14)); // true
+
+labelBalance.addEventListener("click", function () {
+  [...document.querySelectorAll(".movements__row")].forEach(function (row, i) {
+    if (i % 2 === 0) row.style.backgroundColor = "orangered";
+    if (i % 3 === 0) row.style.backgroundColor = "blue";
+  });
+});
