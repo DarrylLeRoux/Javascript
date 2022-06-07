@@ -331,3 +331,9 @@ labelBalance.addEventListener("click", function () {
 // Numeric Separators
 const diameter = 28_746_000_000;
 console.log(diameter); // 28746000000
+
+const PI = 3.14_15;
+console.log(PI);
+
+console.log(Number("2_000")); // NaN
+console.log(parseInt("230_00)")); // NaN
