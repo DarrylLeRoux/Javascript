@@ -372,3 +372,19 @@ console.log(new Date(0)); // Unix time
 console.log(new Date(3 * 24 * 60 * 60 * 1000)); // 3 x DD * 60Min * 60Sec * 1000ms
 
 // Methods on Date()
+const future = new Date(2037, 10, 19, 15, 23);
+console.log(future.getFullYear());
+console.log(future.getMonth()); // 0 based
+console.log(future.getDay()); // Day of the week (0 = Sunday)
+console.log(future.getHours());
+console.log(future.getMinutes());
+console.log(future.getSeconds());
+console.log(future.toISOString()); // 2037-11-19T13:23:00.000Z stores in string
+console.log(future.getTime()); // milliseconds
+
+console.log(new Date(future.getTime()));
+
+console.log(Date.now()); // current timestamp
+
+future.setFullYear(2040); // Sets the year to whatever you want
+console.log(future);
