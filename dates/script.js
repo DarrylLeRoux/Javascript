@@ -233,7 +233,6 @@ const options = {
 };
 
 const locale = navigator.language;
-console.log(locale);
 
 // Set date according to the users locale
 labelDate.textContent = new Intl.DateTimeFormat(
@@ -310,14 +309,16 @@ btnLoan.addEventListener("click", function (e) {
     amount > 0 &&
     currentAccount.movements.some((mov) => mov >= amount * 0.1)
   ) {
-    // Add movement
-    currentAccount.movements.push(amount);
+    setTimeout(() => {
+      // Add movement
+      currentAccount.movements.push(amount);
 
-    // Add loan date
-    currentAccount.movementsDates.push(new Date().toISOString());
+      // Add loan date
+      currentAccount.movementsDates.push(new Date().toISOString());
 
-    // Update UI
-    updateUI(currentAccount);
+      // Update UI
+      updateUI(currentAccount);
+    }, 2000);
   }
   inputLoanAmount.value = "";
 });
@@ -355,7 +356,7 @@ btnSort.addEventListener("click", function (e) {
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
-
+/*
 console.log(23 === 23.0); // true
 
 // Base 10 - 0 to 9
@@ -524,3 +525,33 @@ console.log(
   "Browser: ",
   new Intl.NumberFormat(navigator.language, numberOptions).format(num)
 );
+*/
+
+// setTimout
+const ingredients = ["Olives", "Spinach"];
+const pizzaTimer = setTimeout(
+  (ing1, ing2) => {
+    console.log(`Here is your Pizza with ${ing1}, and ${ing2}`);
+  },
+  3000,
+  ...ingredients
+);
+
+console.log("Waiting...");
+
+// You can short the timeout with clearTimeout by calling the timeout used
+if (ingredients.includes("Spinach")) {
+  clearTimeout(pizzaTimer); // pizzaTime is the setTimeout
+}
+
+// setInterval
+setInterval(() => {
+  const now = new Date();
+  const options = {
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+  };
+  const intl = new Intl.DateTimeFormat("en-US", options).format(now);
+  console.log(intl);
+}, 1000);
