@@ -53,7 +53,7 @@ const accounts = [account1, account2];
 
 /////////////////////////////////////////////////
 // Elements
-const labelWelcome = document.querySelector(".welcome");
+let labelWelcome = document.querySelector(".welcome");
 const labelDate = document.querySelector(".date");
 const labelBalance = document.querySelector(".balance__value");
 const labelSumIn = document.querySelector(".summary__value--in");
@@ -188,14 +188,41 @@ const updateUI = function (acc) {
 
 ///////////////////////////////////////
 // Event handlers
-let currentAccount;
+let currentAccount, timer;
+
+// LOG OUT TIMER
+
+const startLogOutTimer = function () {
+  const tick = () => {
+    const min = String(Math.trunc(time / 60)).padStart(2, 0);
+    const sec = String(Math.trunc(time % 60)).padStart(2, 0);
+    // In each call, print the time to the UI
+    labelTimer.textContent = `${min}:${sec}`;
+
+    // When timer reaches 0 log out user
+    if (time === 0) {
+      clearInterval(timer);
+      labelWelcome = `Log in to get started`;
+      containerApp.style.opacity = 0;
+    }
+    // Decrease 1s
+    time--;
+  };
+  // Setting the time to 5 minutes
+  let time = 10;
+
+  // Call the timer every second
+  tick();
+  const timer = setInterval(tick, 1000);
+  return timer;
+};
 
 ///////////////////////////////////////
 // Fake always logged in
 ///////////////////////////////////////
-currentAccount = account1;
-updateUI(currentAccount);
-containerApp.style.opacity = 100;
+// currentAccount = account1;
+// updateUI(currentAccount);
+// containerApp.style.opacity = 100;
 
 ///////////////////////////////////////
 // Experimenting API / ISO Language Table
@@ -210,9 +237,6 @@ containerApp.style.opacity = 100;
 //   year: "numeric",
 //   weekday: "long", // full day name
 // };
-
-// const locale = navigator.language;
-// console.log(locale);
 
 // labelDate.textContent = new Intl.DateTimeFormat(locale, options).format(
 //   currentDate
@@ -236,7 +260,7 @@ const locale = navigator.language;
 
 // Set date according to the users locale
 labelDate.textContent = new Intl.DateTimeFormat(
-  currentAccount.locale,
+  // currentAccount.locale,
   options
 ).format(currentDate);
 
@@ -267,6 +291,9 @@ btnLogin.addEventListener("click", function (e) {
     // Clear input fields
     inputLoginUsername.value = inputLoginPin.value = "";
     inputLoginPin.blur();
+
+    if (timer) clearInterval(timer);
+    timer = startLogOutTimer();
 
     // Update UI
     updateUI(currentAccount);
@@ -525,7 +552,7 @@ console.log(
   "Browser: ",
   new Intl.NumberFormat(navigator.language, numberOptions).format(num)
 );
-*/
+
 
 // setTimout
 const ingredients = ["Olives", "Spinach"];
@@ -555,3 +582,4 @@ setInterval(() => {
   const intl = new Intl.DateTimeFormat("en-US", options).format(now);
   console.log(intl);
 }, 1000);
+*/
