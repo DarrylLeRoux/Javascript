@@ -353,3 +353,22 @@ console.log(10000000n * 26846810000n);
 // const huge = 20200292982828n
 // const num = 23
 // Uncaught error
+
+//////////////////////////////////////////////////////////////
+// DATES
+//////////////////////////////////////////////////////////////
+
+// Create a date
+const now = new Date();
+console.log(now);
+
+console.log(new Date("Wed Jun 08 2022"));
+console.log(new Date("December 25, 2022")); // Not a good habit
+console.log(new Date(account1.movementsDates[0])); // This is fine as JS created it
+
+console.log(new Date(2037, 10, 19, 15, 23, 5)); // YYYY, MM (0 based), DD, HH, MM, SS
+
+console.log(new Date(0)); // Unix time
+console.log(new Date(3 * 24 * 60 * 60 * 1000)); // 3 x DD * 60Min * 60Sec * 1000ms
+
+// Methods on Date()
