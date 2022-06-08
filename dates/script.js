@@ -81,7 +81,7 @@ const inputClosePin = document.querySelector(".form__input--pin");
 /////////////////////////////////////////////////
 // Functions
 
-const formatMovementDate = function (date) {
+const formatMovementDate = function (date, locale) {
   const calcDaysPassed = (date1, date2) =>
     Math.round(Math.abs(date2 - date1) / (1000 * 60 * 60 * 24));
 
@@ -91,13 +91,12 @@ const formatMovementDate = function (date) {
   if (daysPassed === 1) return "Yesterday";
   if (daysPassed <= 7) return `${daysPassed} days ago`;
   else {
-    const year = date.getFullYear();
-    const month = `${date.getMonth() + 1}`.padStart(2, 0);
-    const day = `${date.getDate()}`.padStart(2, 0);
-    return `${day}/${month}/${year}`;
+    // const year = date.getFullYear();
+    // const month = `${date.getMonth() + 1}`.padStart(2, 0);
+    // const day = `${date.getDate()}`.padStart(2, 0);
+    // return `${day}/${month}/${year}`;
+    return new Intl.DateTimeFormat(locale).format(date);
   }
-
-  console.log(daysPassed);
 };
 
 const displayMovements = function (acc, sort = false) {
@@ -110,7 +109,7 @@ const displayMovements = function (acc, sort = false) {
   movs.forEach(function (mov, i) {
     const type = mov > 0 ? "deposit" : "withdrawal";
     const date = new Date(acc.movementsDates[i]);
-    const displayDate = formatMovementDate(date);
+    const displayDate = formatMovementDate(date, acc.locale);
     const html = `
       <div class="movements__row">
         <div class="movements__type movements__type--${type}">${
@@ -186,18 +185,48 @@ updateUI(currentAccount);
 containerApp.style.opacity = 100;
 
 ///////////////////////////////////////
+// Experimenting API / ISO Language Table
+///////////////////////////////////////
+
+// const currentDate = new Date();
+// const options = {
+//   hour: "numeric",
+//   minute: "numeric",
+//   day: "numeric",
+//   month: "long", // full month name
+//   year: "numeric",
+//   weekday: "long", // full day name
+// };
+
+// const locale = navigator.language;
+// console.log(locale);
+
+// labelDate.textContent = new Intl.DateTimeFormat(locale, options).format(
+//   currentDate
+// );
+
+///////////////////////////////////////
 // SET LOGIN DATE
 ///////////////////////////////////////
 
-// Set current date DD/MM/YYYY
 const currentDate = new Date();
-const year = currentDate.getFullYear();
-const month = `${currentDate.getMonth() + 1}`.padStart(2, 0);
-const day = `${currentDate.getDate()}`.padStart(2, 0);
-const hour = currentDate.getHours();
-const minute = currentDate.getMinutes();
-console.log(day);
-labelDate.textContent = `${day}/${month}/${year} ${hour}:${minute}`;
+const options = {
+  hour: "numeric",
+  minute: "numeric",
+  day: "numeric",
+  month: "long", // full month name
+  year: "numeric",
+  weekday: "long", // full day name
+};
+
+const locale = navigator.language;
+console.log(locale);
+
+// Set date according to the users locale
+labelDate.textContent = new Intl.DateTimeFormat(
+  currentAccount.locale,
+  options
+).format(currentDate);
 
 btnLogin.addEventListener("click", function (e) {
   // Prevent form from submitting
@@ -221,7 +250,6 @@ btnLogin.addEventListener("click", function (e) {
     const day = `${currentDate.getDate()}`.padStart(2, 0);
     const hour = `${currentDate.getHours()}`.padStart(2, 0);
     const minute = `${currentDate.getMinutes()}`.padStart(2, 0);
-
     labelDate.textContent = `${day}/${month}/${year} ${hour}:${minute}`;
 
     // Clear input fields
@@ -420,36 +448,36 @@ console.log(10000000n * 26846810000n);
 
 // Create a date
 const now = new Date();
-console.log(now);
+// console.log(now);
 
-console.log(new Date("Wed Jun 08 2022"));
-console.log(new Date("December 25, 2022")); // Not a good habit
-console.log(new Date(account1.movementsDates[0])); // This is fine as JS created it
+// console.log(new Date("Wed Jun 08 2022"));
+// console.log(new Date("December 25, 2022")); // Not a good habit
+// console.log(new Date(account1.movementsDates[0])); // This is fine as JS created it
 
-console.log(new Date(2037, 10, 19, 15, 23, 5)); // YYYY, MM (0 based), DD, HH, MM, SS
+// console.log(new Date(2037, 10, 19, 15, 23, 5)); // YYYY, MM (0 based), DD, HH, MM, SS
 
-console.log(new Date(0)); // Unix time
-console.log(new Date(3 * 24 * 60 * 60 * 1000)); // 3 x DD * 60Min * 60Sec * 1000ms
+// console.log(new Date(0)); // Unix time
+// console.log(new Date(3 * 24 * 60 * 60 * 1000)); // 3 x DD * 60Min * 60Sec * 1000ms
 
-// Methods on Date()
-const future = new Date(2037, 10, 19, 15, 23);
-console.log(future.getFullYear());
-console.log(future.getMonth()); // 0 based
-console.log(future.getDay()); // Day of the week (0 = Sunday)
-console.log(future.getHours());
-console.log(future.getMinutes());
-console.log(future.getSeconds());
-console.log(future.toISOString()); // 2037-11-19T13:23:00.000Z stores in string
-console.log(future.getTime()); // milliseconds
+// // Methods on Date()
+// const future = new Date(2037, 10, 19, 15, 23);
+// console.log(future.getFullYear());
+// console.log(future.getMonth()); // 0 based
+// console.log(future.getDay()); // Day of the week (0 = Sunday)
+// console.log(future.getHours());
+// console.log(future.getMinutes());
+// console.log(future.getSeconds());
+// console.log(future.toISOString()); // 2037-11-19T13:23:00.000Z stores in string
+// console.log(future.getTime()); // milliseconds
 
-console.log(new Date(future.getTime()));
+// console.log(new Date(future.getTime()));
 
-console.log(Date.now()); // current timestamp
+// console.log(Date.now()); // current timestamp
 
-future.setFullYear(2040); // Sets the year to whatever you want
-console.log(future);
+// future.setFullYear(2040); // Sets the year to whatever you want
+// console.log(future);
 
-console.log(+future);
+// console.log(+future);
 
 // take date1 and date 2 and subtract them from each other
 // then work out the milliseconds to days
@@ -458,3 +486,8 @@ const calcDaysPassed = (date1, date2) =>
 
 const days1 = calcDaysPassed(new Date(2037, 3, 14), new Date(2037, 3, 24));
 console.log(days1);
+
+//////////////////////////////////////////////////////////////
+// INTERNATIONAL DATES
+//////////////////////////////////////////////////////////////
+// new Intl.DateTimeFormat("en-US").format(currentDate);
