@@ -39,6 +39,24 @@ document.addEventListener("keydown", function (e) {
 // Smooth Scrolling
 ////////////////////////////////////////////////////////////////////////
 
+const btnScrollTo = document.querySelector(".btn--scroll-to");
+const section1 = document.querySelector("#section--1");
+
+btnScrollTo.addEventListener("click", (e) => {
+  const s1coords = section1.getBoundingClientRect();
+
+  // current position of s1coords to the position of current scroll (pageXOffset)
+  // Old way
+  // window.scrollTo({
+  //   left: s1coords.left + window.pageXOffset,
+  //   top: s1coords.top + window.pageYOffset,
+  //   behavior: "smooth",
+  // });
+
+  // New way
+  section1.scrollIntoView({ behavior: "smooth" });
+});
+
 ////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////
