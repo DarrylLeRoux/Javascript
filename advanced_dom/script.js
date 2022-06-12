@@ -41,7 +41,9 @@ document.addEventListener("keydown", function (e) {
 console.log(document.documentElement); // Selects
 console.log(document.head);
 
-document.queryCommandValue(".header");
+const header = document.querySelector(".header");
+
+// If the variable is crated first storing a nodelist - sections, then even if it is deleted, it will still be printed
 const allSections = document.querySelectorAll(".section");
 console.log(allSections);
 
@@ -50,3 +52,27 @@ document.getElementById("section--1");
 // HTML collection (Live collection - if the DOM changes, this is updated)
 const allButtons = document.getElementsByTagName("button");
 console.log(allButtons);
+
+document.getElementsByClassName("btn");
+
+////////////////////////////////////////////////////////////////////////
+// CREATED AND INSERTING ELEMENTS
+////////////////////////////////////////////////////////////////////////
+
+const message = document.createElement("div");
+message.classList.add("cookie-message");
+message.textContent = "We use cookies for improved functionality and analytics";
+message.innerHTML =
+  'We use cookies for improved functionality and analytics. <button class="btn btn--close-cookie">Got it!</button>';
+
+header.prepend(message);
+// header.append(message);
+// header.append(message.cloneNode(true)); // repeat
+
+// header.before(message);
+// header.after(message);
+
+// Delete elements
+document.querySelector(".btn--close-cookie").addEventListener("click", () => {
+  message.remove();
+});
