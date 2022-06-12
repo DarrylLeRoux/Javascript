@@ -34,3 +34,19 @@ document.addEventListener("keydown", function (e) {
     closeModal();
   }
 });
+
+////////////////////////////////////////////////////////////////////////
+// SELECTING ELEMENTS
+////////////////////////////////////////////////////////////////////////
+console.log(document.documentElement); // Selects
+console.log(document.head);
+
+document.queryCommandValue(".header");
+const allSections = document.querySelectorAll(".section");
+console.log(allSections);
+
+document.getElementById("section--1");
+
+// HTML collection (Live collection - if the DOM changes, this is updated)
+const allButtons = document.getElementsByTagName("button");
+console.log(allButtons);
