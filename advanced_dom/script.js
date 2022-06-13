@@ -156,3 +156,12 @@ setTimeout(() => {
   // remove eventListener
   h1.removeEventListener("mouseenter", alertH1);
 }, 4000);
+
+// Get random number
+const randomInt = (min, max) =>
+  Math.floor(Math.random() * (max - min + 1) + min);
+
+// Use random number for RGB Values
+const randomColor = () => {
+  `rgb(${randomInt(0, 255)}, ${randomInt(0, 255)}, ${randomInt(0, 255)})`;
+};
