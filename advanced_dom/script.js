@@ -146,6 +146,13 @@ logo.className = "Jonas";
 ////////////////////////////////////////////////////////////////////////
 const h1 = document.querySelector("h1");
 
-h1.addEventListener("mouseenter", (e) => {
-  alert("Event Listener: Entered header");
-});
+const alertH1 = function (e) {
+  alert("addEventListener");
+};
+
+h1.addEventListener("mouseenter", alertH1);
+
+setTimeout(() => {
+  // remove eventListener
+  h1.removeEventListener("mouseenter", alertH1);
+}, 4000);
