@@ -58,6 +58,24 @@ btnScrollTo.addEventListener("click", (e) => {
 });
 
 ////////////////////////////////////////////////////////////////////////
+// PAGE NAVIGATION
+////////////////////////////////////////////////////////////////////////
+
+// Event delegation
+// 1. Add eventListener to common parent element
+// 2. Determine what element originated the event
+
+document.querySelector(".nav__links").addEventListener("click", function (e) {
+  e.preventDefault(); // stops from snapping to the elements
+  console.log(e.target);
+  // Matching strategy
+  if (e.target.classList.contains("nav__link")) {
+    // Smooth scroll to section
+    const id = e.target.getAttribute("href");
+    document.querySelector(id).scrollIntoView({ behavior: "smooth" });
+  }
+});
+////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////
 /*
@@ -140,7 +158,7 @@ logo.classList.contains("c");
 
 // Don't use - overrides the original
 logo.className = "Jonas";
-*/
+
 ////////////////////////////////////////////////////////////////////////
 // EVENTS AND EVENT HANDLERS
 ////////////////////////////////////////////////////////////////////////
@@ -180,3 +198,4 @@ document.querySelector(".nav").addEventListener("click", function (e) {
   this.style.backgroundColor = randomColor();
   console.log(e.target, "HEADER");
 });
+*/
