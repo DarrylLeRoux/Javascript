@@ -141,3 +141,11 @@ logo.classList.contains("c");
 // Don't use - overrides the original
 logo.className = "Jonas";
 */
+////////////////////////////////////////////////////////////////////////
+// EVENTS AND EVENT HANDLERS
+////////////////////////////////////////////////////////////////////////
+const h1 = document.querySelector("h1");
+
+h1.addEventListener("mouseenter", (e) => {
+  alert("Event Listener: Entered header");
+});
